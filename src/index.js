@@ -2,16 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Favicon from 'react-favicon';
+
 
 ReactDOM.render(
   <React.StrictMode>
+  <Favicon url='http://cdn.icon-icons.com/icons2/663/PNG/512/vinyl-record_icon-icons.com_60174.png' />
     <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
