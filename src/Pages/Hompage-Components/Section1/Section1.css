@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap');
+
+.section1{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(../../../images/deitado-vinil.jpg);
+    background-size: cover;
+    background-position: center; 
+    margin: 0;
+    margin-top: 0px;
+    position: relative;
+    width: 100%;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+.bigText{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 120px;
+    font-weight: bolder;
+    color:white;
+    padding-left: 50px;
+    margin-left: 50px;
+    width: 800px;
+    height: 270px;
+    margin-top: 0px;
+    padding-bottom: 30px;
+}
+
+.littleText{
+    margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    background-color: black;
+    font-size: 55px;
+    text-align: center;
+    margin-left: 100px;
+    width: 300px;
+    height: 75px;
+    font-weight: bold;
+}
+
+@media (max-width:1350px) {
+    .section1{
+
+        width: 400px;
+        height: 500px;
+    }
+    .bigText{
+    font-size: 60px;
+    padding-left: 10px;
+    margin-left: 10px;
+    padding-bottom: 10px;
+    width: 400px;
+    height: 170px;
+    }
+
+    .littleText{
+       
+        font-size: 35px;
+        margin-left: 10px;
+        width: 200px;
+        height: 50px;
+    }
+}
+
+/* @media (min-width:2000px) {
+    .section1{
+
+        width: 2500px;
+        height: 1000px;
+    }
+    .bigText{
+    font-size: 120px;
+    padding-left: 30px;
+    margin-left: 30px;
+    width: 400px;
+    height: 170px;
+    }
+
+    .littleText{
+    
+        font-size: 35px;
+        margin-left: 10px;
+        width: 200px;
+        height: 50px;
+    }
+}
+
+ */

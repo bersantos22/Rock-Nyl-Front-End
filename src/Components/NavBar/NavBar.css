@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap');
+nav{
+    font-family: 'Bebas Neue';
+    font-size: 40px;
+    background-color:#1d1c1c;
+    /* background-color:#2b2929 ; */
+    display: flex;
+    font-weight: bold;
+    flex-direction: row;
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 100px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.imgVinyl{
+    width: 70px;
+}
+.Link-Nav{
+    text-decoration: none;
+}
+
+.iconTitle{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 250px;
+    font-size: 50px;
+}
+
+.listUl{
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+nav a{
+    text-decoration: none;
+    color:white;
+    
+}
+
+.listLi{
+    padding:15px;
+
+}
+
+.nav-link:hover{
+    color:#e5840f;
+}
+/* .title:hover{
+    color: rgb(245, 84, 9);;
+} */
+
+@media (max-width:1350px) {
+nav{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 110px;
+    height: 200px;
+    width: 200px;
+
+}
+.listUl{
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    list-style-type: none;
+    padding-right: 50px;
+    text-decoration: none;
+    font-size: 18px;
+    height: 50px;
+    text-align: center;
+}
+.iconTitle{
+/*     display: flex;
+    align-items: center;
+    justify-content: space-around; */
+    width: 250px;
+    font-size: 50px;
+}
+}
