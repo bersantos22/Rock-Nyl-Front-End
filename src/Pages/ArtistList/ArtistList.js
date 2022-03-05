@@ -27,6 +27,7 @@ export function ArtistList() {
       <div>
         <ul>
           {goals.map((currentGoal) => {
+            console.log(currentGoal);
             return <li key={currentGoal._id}>{currentGoal.artist}</li>;
           })}
         </ul>
