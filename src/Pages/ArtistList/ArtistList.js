@@ -2,19 +2,29 @@ import { useState, useEffect } from "react";
 import { api } from "../../api/api";
 
 export function ArtistList() {
-  const [goals, setGoals] = useState([]);
+  const [artists, setArtists] = useState([]);
 
   useEffect(() => {
-    async function fetchGoals() {
+    async function fetchArtists() {
       try {
         const response = await api.get("/product/all-artists");
-        setGoals([...response.data]);
+        setArtists([...response.data]);
       } catch (error) {
         console.log(error);
       }
     }
-    fetchGoals();
+    fetchArtists();
   }, []);
+
+  const sortArtists = artists
+    .map((currentGoal) => {
+      return currentGoal.artist;
+    })
+    .sort();
+
+  const filterDuplicatesArtists = sortArtists.filter(function (ele, pos) {
+    return sortArtists.indexOf(ele) === pos;
+  });
 
   return (
     <div className="container mx-auto">
@@ -26,9 +36,8 @@ export function ArtistList() {
       </div>
       <div>
         <ul>
-          {goals.map((currentGoal) => {
-            console.log(currentGoal);
-            return <li key={currentGoal._id}>{currentGoal.artist}</li>;
+          {filterDuplicatesArtists.map((currentGoal) => {
+            return <li key={currentGoal}>{currentGoal}</li>;
           })}
         </ul>
       </div>
