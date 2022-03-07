@@ -17,8 +17,8 @@ export function ArtistList() {
   }, []);
 
   const sortArtists = artists
-    .map((currentGoal) => {
-      return currentGoal.artist;
+    .map((currentArtist) => {
+      return currentArtist.artist;
     })
     .sort();
 
@@ -36,8 +36,8 @@ export function ArtistList() {
       </div>
       <div>
         <ul>
-          {filterDuplicatesArtists.map((currentGoal) => {
-            return <li key={currentGoal}>{currentGoal}</li>;
+          {filterDuplicatesArtists.map((currentArtist) => {
+            return <li key={currentArtist}>{currentArtist}</li>;
           })}
         </ul>
       </div>

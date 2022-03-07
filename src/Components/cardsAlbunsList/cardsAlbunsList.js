@@ -20,7 +20,10 @@ export function CardsAlbunsList(props) {
           Buy Now
         </span>
         <span className="inline-block  text-sm font-semibold text-gray-700 mr-2 mb-2">
-          {props.price}
+          {props.price.toLocaleString("en", {
+            style: "currency",
+            currency: "USD",
+          })}
         </span>
       </div>
     </div>
