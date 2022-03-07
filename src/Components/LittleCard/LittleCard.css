@@ -92,7 +92,7 @@
   }
   
   .card__button:hover {
-    box-shadow: 0 10px 20px rgba(170, 120, 27, 0.897);
+    box-shadow: 0 10px 20px rgba(170, 120, 27, 0.719);
   }
   
   .card__img, 
