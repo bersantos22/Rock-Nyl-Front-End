@@ -40,6 +40,9 @@ export function SingleProduct(props){
                             </button>
                         </Link>
                     </div>
+                    <div class="productDetails">
+                        <span>Details: {props.details}</span>
+                    </div>
                 </div>
         </div>
     )

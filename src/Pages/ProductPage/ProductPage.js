@@ -12,6 +12,7 @@ export function ProducPage(){
             type='GOLD 1LP'
             price={39.98}
             description='Motown: A Symphony Of Soul features some of Motown’s best-known and loved singles now reimagined with new orchestration by the Royal Philharmonic Orchestra. Also included are some beautiful new guest vocalist versions that sit alongside the original vocals laid down over 50 years ago. Beverley Knight joins Marvin Gaye on the seminal Abraham Martin & John, and Mica Paris joins Jimmy Ruffin on "What Becomes Of The Broken Hearted."'
+            details={6610068537437}
 
         />
      
