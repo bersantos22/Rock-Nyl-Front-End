@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { api } from "../../api/api";
 
 export function ArtistList() {
@@ -37,7 +38,11 @@ export function ArtistList() {
       <div>
         <ul>
           {filterDuplicatesArtists.map((currentArtist) => {
-            return <li key={currentArtist}>{currentArtist}</li>;
+            return (
+              <Link key={currentArtist} to={`/product/artist/${currentArtist}`}>
+                <li key={currentArtist}>{currentArtist}</li>
+              </Link>
+            );
           })}
         </ul>
       </div>
