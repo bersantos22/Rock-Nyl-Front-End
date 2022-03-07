@@ -32,17 +32,15 @@ export function SingleProduct(props) {
           <p>{props.description}</p>
         </div>
 
-                  <div className="divBtnProduct">
-                        <Link to='#'>
-                            <button type="button" className="btnProduct ">
-                            ADD TO BAG
-                            </button>
-                        </Link>
-                   </div>
-                   <div className="productDetails">
-                        <span>Details: {props.details}</span>
-                   </div>
-                </div>
+        <div className="divBtnProduct">
+          <Link to="#">
+            <button type="button" className="btnProduct ">
+              ADD TO BAG
+            </button>
+          </Link>
+        </div>
+        <div className="productDetails">
+          <span>Details: {props.details}</span>
         </div>
       </div>
     </div>
