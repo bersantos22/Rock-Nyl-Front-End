@@ -51,9 +51,10 @@ export function AlbumList() {
               id={currentAlbum._id}
               url_img={currentAlbum.url_img}
               alt={currentAlbum.alt}
-              albumName={currentAlbum.albumName}
+              albumName={`${currentAlbum.albumName.substring(0, 50)}...`}
               artist={currentAlbum.artist}
               description={`${currentAlbum.description.substring(0, 100)}...`}
+              price={currentAlbum.price}
             />
           );
         })}
