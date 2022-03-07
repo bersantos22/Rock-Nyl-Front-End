@@ -9,18 +9,21 @@
   }
   
   /*===== CARD =====*/
-  .containerCard {
+ .containerCard {
     font-family:'Poppins', sans-serif;
     height: 400px;
+    width: 350px;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+    margin-left: 1rem;
+    margin-right: 1rem;
+  } 
   
   .little-card {
-    margin: 0;
-    width: 280px;
-    height: 345px;
+    font-family:'Poppins', sans-serif;
+    width: 290px;
+    height: 370px;
     background-color:white;
     border-radius: 1rem;
     padding:15px;
@@ -46,6 +49,7 @@
     font-size: 1.5rem;
   color:rgb(37, 35, 35);
     padding-left: 10px;
+    padding-top: 2rem;
     font-weight: bolder;
   }
 .card__title h1,h4{
@@ -113,12 +117,12 @@
   }
   
   .little-card:hover .card__title {
-    transform: translateX(-1rem);
+    transform: translateX(-0.8rem);
     margin-bottom: 0;
   }
   
   .little-card:hover .card__preci {
-    transform: translateX(-6rem);
+    transform: translateX(-6.2rem);
   }
   
   .little-card:hover .card__description, 

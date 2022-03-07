@@ -5,12 +5,13 @@ import vinyl from "../../images/kindpng_810924.png";
 
 export function NavBar() {
   return (
-    <nav>
+    <nav className="w-full">
+    <div className="divNav w-full">
       <div className="iconTitle">
         <div>
           <img className="imgVinyl" src={vinyl} alt="discImg"></img>
         </div>
-        <div>
+        <div className="titleNav">
           <Link className="nav-link title" to="/#">
             Rock'Nyl
           </Link>
@@ -42,6 +43,7 @@ export function NavBar() {
           </li>
         </ul>
       </div>
+  </div>  
     </nav>
   );
 }

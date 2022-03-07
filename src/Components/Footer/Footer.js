@@ -4,7 +4,7 @@ import vinyl from "../../images/kindpng_810924.png";
 
 export function Footer() {
   return (
-    <footer>
+    <footer className="w-full">
       <div className="TextFooter">
         <div className="footerRock">
           <div>
