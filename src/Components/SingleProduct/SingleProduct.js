@@ -42,7 +42,6 @@ export function SingleProduct(props) {
         <div className="productDetails">
           <span>Details: {props.details}</span>
         </div>
-      </div>
-    </div>
+
   );
 }
