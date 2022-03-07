@@ -4,11 +4,8 @@ import { useParams } from "react-router-dom";
 import { SingleProduct } from "../../Components/SingleProduct/SingleProduct";
 import { Section2 } from "../Hompage-Components/Section2/Section2";
 
-
 export function ProductPage() {
-
   const params = useParams();
-
 
   const [album, setAlbum] = useState({
     url_img: "",
@@ -17,7 +14,7 @@ export function ProductPage() {
     type: "",
     price: "",
     description: "",
-    details:""
+    details: "",
   });
 
   useEffect(() => {
@@ -41,6 +38,7 @@ export function ProductPage() {
         type={album.type}
         price={album.price}
         description={album.description}
+        details={album.details}
       />
 
       <Section2 />
