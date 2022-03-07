@@ -30,8 +30,8 @@ export function NavBar() {
           </li>
 
           <li className="listLi">
-            <Link className="nav-link text-light" to="/">
-              Shop By Genres
+            <Link className="nav-link text-light" to="/genres-list">
+              Shop By Album
             </Link>
           </li>
 
