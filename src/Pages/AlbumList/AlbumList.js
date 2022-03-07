@@ -1,9 +1,18 @@
 import { api } from "../../api/api";
 import { useState, useEffect } from "react";
+import { PaginationComponent } from "../../Components/PaginationComponent/PaginationComponent";
+import { PaginationSelector } from "../../Components/PaginationSelector/PaginationSelector";
 import { CardsAlbunsList } from "../../Components/cardsAlbunsList/cardsAlbunsList";
 
 export function AlbumList() {
-  const [album, setAlbuns] = useState([]);
+  const [albuns, setAlbuns] = useState([]);
+  const [itensPerPage, setItensPerPage] = useState(30);
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const pages = Math.ceil(albuns.length / itensPerPage);
+  const startIndex = currentPage * itensPerPage;
+  const endIndex = startIndex + itensPerPage;
+  const currentItens = albuns.slice(startIndex, endIndex);
 
   useEffect(() => {
     async function fetchAlbum() {
@@ -17,15 +26,9 @@ export function AlbumList() {
     fetchAlbum();
   }, []);
 
-  // const sortArtists = artists
-  //   .map((currentGoal) => {
-  //     return currentGoal.albumName;
-  //   })
-  //   .sort();
-
-  // const filterDuplicatesArtists = sortArtists.filter(function (ele, pos) {
-  //   return sortArtists.indexOf(ele) === pos;
-  // });
+  useEffect(() => {
+    setCurrentPage(0);
+  }, [itensPerPage]);
 
   return (
     <div className="container mx-auto">
@@ -35,29 +38,44 @@ export function AlbumList() {
           Search for your favorite Album!
         </h1>
       </div>
-      {/*     <div>
-        <ul>
-          {filterDuplicatesArtists.map((currentGoal) => {
-            return <li key={currentGoal}>{currentGoal}</li>;
-          })}
-        </ul>
-      </div> */}
+
+      <div>
+        <p>
+          <b>{albuns.length}</b> results found
+        </p>
+
+        <PaginationSelector
+          itensPerPage={itensPerPage}
+          setItensPerPage={setItensPerPage}
+        />
+      </div>
 
       <div className="grid grid-cols-5 gap-4">
-        {album.map((currentAlbum) => {
+        {currentItens.map((currentAlbum) => {
           return (
             <CardsAlbunsList
               key={currentAlbum._id}
               id={currentAlbum._id}
               url_img={currentAlbum.url_img}
               alt={currentAlbum.alt}
-              albumName={currentAlbum.albumName}
+              albumName={
+                currentAlbum.albumName.length > 50
+                  ? `${currentAlbum.albumName.substring(0, 50)} ...`
+                  : `${currentAlbum.albumName}`
+              }
               artist={currentAlbum.artist}
               description={`${currentAlbum.description.substring(0, 100)}...`}
+              price={currentAlbum.price}
             />
           );
         })}
       </div>
+      <div className="p-2"></div>
+      <PaginationComponent
+        pages={pages}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
     </div>
   );
 }
