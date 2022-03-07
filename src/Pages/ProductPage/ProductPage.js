@@ -1,20 +1,45 @@
-import React from "react";
+import { api } from "../../api/api";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { SingleProduct } from "../../Components/SingleProduct/SingleProduct";
 import { Section2 } from "../Hompage-Components/Section2/Section2";
 
-export function ProducPage(){
-    return(
-        
-        <SingleProduct 
-            img='https://cdn.shopify.com/s/files/1/0287/4323/7725/products/Motown_12GoldPackshot_650x650.jpg?v=1633546720'
-            artist='Motown'
-            albumName='A Symphony Of Soul (with the Royal Philharmonic Orchestra) (Gold Limited Edition)'
-            type='GOLD 1LP'
-            price={39.98}
-            description='Motown: A Symphony Of Soul features some of Motown’s best-known and loved singles now reimagined with new orchestration by the Royal Philharmonic Orchestra. Also included are some beautiful new guest vocalist versions that sit alongside the original vocals laid down over 50 years ago. Beverley Knight joins Marvin Gaye on the seminal Abraham Martin & John, and Mica Paris joins Jimmy Ruffin on "What Becomes Of The Broken Hearted."'
+export function ProducPage() {
+  const params = useParams();
 
-        />
-     
-    
-    )
+  const [album, setAlbum] = useState({
+    url_img: "",
+    artist: "",
+    albumName: "",
+    type: "",
+    price: "",
+    description: "",
+  });
+
+  useEffect(() => {
+    async function fetchAlbum() {
+      try {
+        const response = await api.get(`/product/album/${params.id}`);
+        setAlbum({ ...response.data[0] });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchAlbum();
+  }, [params.id]);
+
+  return (
+    <>
+      <SingleProduct
+        img={album.url_img}
+        artist={album.artist}
+        albumName={album.albumName}
+        type={album.type}
+        price={album.price}
+        description={album.description}
+      />
+
+      <Section2 />
+    </>
+  );
 }

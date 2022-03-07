@@ -1,11 +1,15 @@
+import { Link } from "react-router-dom";
+
 export function CardsAlbunsList(props) {
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg">
-      <img
-        className="w-full"
-        src={props.url_img}
-        alt={`album ${props.albumName}`}
-      />
+      <Link to={`/product/album/${props.id}`}>
+        <img
+          className="w-full"
+          src={props.url_img}
+          alt={`album ${props.albumName}`}
+        />
+      </Link>
       <div className="px-6 py-4">
         <div className="font-bold text-l mb-2">
           <p>{props.albumName}</p>
