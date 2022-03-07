@@ -40,6 +40,7 @@ export function ProducPage() {
         type={album.type}
         price={album.price}
         description={album.description}
+        details={album.details}
       />
 
       <Section2 />

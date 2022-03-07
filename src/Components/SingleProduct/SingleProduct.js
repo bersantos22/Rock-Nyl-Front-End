@@ -44,7 +44,6 @@ export function SingleProduct(props) {
                    </div>
                 </div>
         </div>
-      </div>
-    </div>
+
   );
 }
