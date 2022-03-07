@@ -2,7 +2,7 @@
 
 .title2 {
   font-family: "Bebas Neue", sans-serif;
-  font-size: 35px;
+  font-size: 40px;
   font-weight: bolder;
   text-align: center;
 }
@@ -10,4 +10,11 @@
 .section2 {
   padding: 15px;
   background-color: white !important;
+}
+
+@media (max-width:1350px) {
+  .divGrid{
+    display: flex;
+    flex-direction: column;
+  }
 }
