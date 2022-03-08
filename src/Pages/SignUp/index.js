@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../../api/api";
 
-import { Forms } from "../../Components/Forms/Forms";
+import { FormField } from "../../Components/Forms/FormField";
 import { ErrorAlert } from "../../Components/ErrorAlert";
 import { Button } from "../../Components/Button";
 
@@ -33,7 +33,7 @@ export function SignUp() {
       setLoading(true);
       setError(null);
 
-      await api.post("/users/signup", form);
+      await api.post("/account/signup", form);
       setLoading(false);
       navigate("/login");
     } catch (error) {
@@ -48,12 +48,14 @@ export function SignUp() {
   }
 
   return (
-    <div className="container mt-5">
-      <h1>Sign Up</h1>
+    <div className="h-screen mt-5 mb-5 flex flex-col items-center">
+    <div className="title2 mt-1 mb-5">
+      <p>Sign Up</p>
+      </div>
 
-      <form onSubmit={handleSubmit}>
-        <Forms
-          label="Name"
+      <form className='bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4 mb-5 w-1/2' onSubmit={handleSubmit}>
+        <FormField
+          label="Full Name"
           id="signUpFormName"
           name="name"
           onChange={handleChange}
@@ -62,7 +64,7 @@ export function SignUp() {
           readOnly={loading}
         />
 
-        <Forms
+        <FormField
           type="email"
           label="E-mail"
           id="signUpEmail"
@@ -72,7 +74,7 @@ export function SignUp() {
           required={true}
           readOnly={loading}
         />
-        <Forms
+        <FormField
           type="password"
           label="Senha"
           id="signUpPassword"
@@ -84,7 +86,7 @@ export function SignUp() {
           pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$"
         />
 
-        <Forms
+        <FormField
           type="password"
           label="Confirmação de senha"
           id="signUpConfirmPassword"
@@ -96,10 +98,10 @@ export function SignUp() {
           pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$"
         />
 
-        <Button type="submit" disabled={loading} className="btn btn-primary">
+        <Button type="submit" disabled={loading} className="bg-stone-800 hover:bg-amber-500 text-white font-bold py-2 px-4 mt-3 rounded focus:outline-none focus:shadow-outline">
           {loading ? (
-            <div className="spinner-border" role="status">
-              <span className="visually-hidden">Loading...</span>
+            <div className="animate-spin" role="status">
+              <span className="hidden">Loading...</span>
             </div>
           ) : (
             "Cadastrar"

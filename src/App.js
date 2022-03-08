@@ -10,6 +10,8 @@ import { AlbumList } from "./Pages/AlbumList/AlbumList";
 import { ProductPage } from "./Pages/ProductPage/ProductPage";
 import { AlbunsArtist } from "./Pages/AlbunsArtist/AlbunsArtist";
 import { CreateProduct } from "./Pages/CreateProduct/CreateProduct";
+import { MyAccount } from "./Pages/MyAccount/MyAccount";
+import { ProtectedRoute } from "./Components/ProtectedRoute";
 
 function App() {
   return (
@@ -26,6 +28,10 @@ function App() {
           <Route path="/product/album/:id" element={<ProductPage />} />
           <Route path="/product/artist/:artist" element={<AlbunsArtist />} />
           <Route path="/adm/create-product" element={<CreateProduct />} />
+          <Route
+            path="/myAccount"
+            element={<ProtectedRoute component={MyAccount} />}
+          />
         </Routes>
 
         <Footer />
