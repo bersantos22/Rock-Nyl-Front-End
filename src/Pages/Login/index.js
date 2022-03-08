@@ -44,8 +44,8 @@ export function Login() {
   }
 
   return (
-    <div className="container mt-5">
-      <h1>Login</h1>
+    <div className="container w-full grid justify-items-center mr-0 mt-10 mb-5 ml-5">
+  
 
       <form onSubmit={handleSubmit}>
         <Forms
@@ -57,29 +57,25 @@ export function Login() {
           value={form.email}
           required={true}
           readOnly={loading}
-        />
-        <Forms
-          type="password"
-          label="Senha"
-          id="loginFormPassword"
-          required={true}
-          readOnly={loading}
-          name="password"
-          value={form.password}
-          onChange={handleChange}
+          type2="password"
+          label2="Password"
+          id2="loginFormPassword"
+          required2={true}
+          readOnly2={loading}
+          name2="password"
+          value2={form.password}
+          onChange2={handleChange}
           pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$"
-        />
-
-        <Button type="submit" disabled={loading} className="btn btn-primary">
+          btn={<Button type="submit" disabled={loading} className="bg-stone-800 hover:bg-amber-500 text-white font-bold py-2 px-4 m-2 mr-4 rounded focus:outline-none focus:shadow-outline">
           {loading ? (
             <div className="spinner-border" role="status">
               <span className="visually-hidden">Loading...</span>
             </div>
           ) : (
-            "Entrar"
+            "Sign In"
           )}
-        </Button>
-
+        </Button>}
+        />
         {error ? <ErrorAlert>{error}</ErrorAlert> : null}
       </form>
     </div>

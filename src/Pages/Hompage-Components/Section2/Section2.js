@@ -5,8 +5,8 @@ import imgTeste from '../../../images/nirvanatestando-removebg-preview.png'
 
 export function Section2() {
   return (
-    <section className="section2 container mx-auto">
-      <div className="title2 mt-4 mb-2">
+    <section className="section2 container mx-auto mt-5 mb-10">
+      <div className="title2 mt-3 mb-5">
         <p>NEW RELEASES</p>
       </div>
       
