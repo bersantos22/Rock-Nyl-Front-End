@@ -32,18 +32,18 @@ export function NavBar() {
           </li>
 
           <li className="listLi">
-            <Link className="nav-link" to="/aboutUs">
+            <Link className="nav-link" to="/myAccount">
               My Account
-            </Link>
-          </li>
-          <li className="listLi">
-            <Link className="nav-link" to="/signUp">
-              Sign Up
             </Link>
           </li>
           <li className="listLi">
             <Link className="nav-link text-light" to="/login">
               Login
+            </Link>
+          </li>
+          <li className="listLi">
+            <Link className="nav-link" to="/signUp">
+              Sign Up
             </Link>
           </li>
         </ul>

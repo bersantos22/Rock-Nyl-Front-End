@@ -12,10 +12,13 @@ import { AlbunsArtist } from "./Pages/AlbunsArtist/AlbunsArtist";
 import { CreateProduct } from "./Pages/CreateProduct/CreateProduct";
 import { MyAccount } from "./Pages/MyAccount/MyAccount";
 import { ProtectedRoute } from "./Components/ProtectedRoute";
+import {AuthContextComponent} from './contexts/authContext'
+import {EditAccount} from './Pages/EditAccount/EditAccount'
 
 function App() {
   return (
     <BrowserRouter>
+    <AuthContextComponent>
       <div className="appClass">
         <NavBar />
 
@@ -32,10 +35,16 @@ function App() {
             path="/myAccount"
             element={<ProtectedRoute component={MyAccount} />}
           />
+          <Route
+          path="/editAccount"
+          element={<ProtectedRoute component={EditAccount} />}
+          />
+
         </Routes>
 
         <Footer />
       </div>
+      </AuthContextComponent>
     </BrowserRouter>
   );
 }

@@ -61,12 +61,12 @@ export function ArtistList() {
   const currentItens = filterDuplicatesArtists.slice(startIndex, endIndex);
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto mt-5">
       <div className="flex flex-col items-center">
-        <h1 className="text-3xl font-bold ">Artist List</h1>
-        <h1 className="text-lg font-bold font-mono tracking-tighter text-stone-500">
+        <p className="title2 text-3xl font-bold m-2 ">Artist List</p>
+        <p className="subtitle text-lg font-bold font-mono tracking-tighter text-stone-600 mb-5">
           Search for your favorite artist!
-        </h1>
+        </p>
       </div>
 
       <div className="flex justify-between  ">

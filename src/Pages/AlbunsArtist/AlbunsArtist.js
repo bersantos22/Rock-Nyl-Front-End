@@ -35,12 +35,12 @@ export function AlbunsArtist() {
   }, [itensPerPage]);
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto mt-5 mb-2">
       <div className="flex flex-col items-center">
-        <h1 className="text-3xl font-bold ">{params.artist}</h1>
-        <h1 className="text-lg font-bold font-mono tracking-tighter text-stone-500">
+        <p className="text-3xl font-bold ">{params.artist}</p>
+        <p className="subtitle text-lg font-bold tracking-tighter text-stone-600">
           Search for your favorite album of {params.artist}!
-        </h1>
+        </p>
       </div>
 
       <div>
