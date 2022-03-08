@@ -9,7 +9,7 @@ import { ArtistList } from "./Pages/ArtistList/ArtistList";
 import { AlbumList } from "./Pages/AlbumList/AlbumList";
 import { ProductPage } from "./Pages/ProductPage/ProductPage";
 import { AlbunsArtist } from "./Pages/AlbunsArtist/AlbunsArtist";
-import { Forms } from "./Components/Forms/Forms";
+import { CreateProduct } from "./Pages/CreateProduct/CreateProduct";
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
           <Route path="/genres-list" element={<AlbumList />} />
           <Route path="/product/album/:id" element={<ProductPage />} />
           <Route path="/product/artist/:artist" element={<AlbunsArtist />} />
-
+          <Route path="/adm/create-product" element={<CreateProduct />} />
         </Routes>
 
         <Footer />
