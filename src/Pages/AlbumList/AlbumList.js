@@ -3,11 +3,14 @@ import { useState, useEffect } from "react";
 import { PaginationComponent } from "../../Components/PaginationComponent/PaginationComponent";
 import { PaginationSelector } from "../../Components/PaginationSelector/PaginationSelector";
 import { CardsAlbunsList } from "../../Components/cardsAlbunsList/cardsAlbunsList";
+import { SearchBar } from "../../Components/SearchBar/SearchBar";
 
 export function AlbumList() {
   const [albuns, setAlbuns] = useState([]);
   const [itensPerPage, setItensPerPage] = useState(30);
   const [currentPage, setCurrentPage] = useState(0);
+  const [rerender, setRerender] = useState(true);
+  const [backup, setBackup] = useState([]);
 
   const pages = Math.ceil(albuns.length / itensPerPage);
   const startIndex = currentPage * itensPerPage;
@@ -19,16 +22,39 @@ export function AlbumList() {
       try {
         const response = await api.get("/product/all-artists");
         setAlbuns([...response.data]);
+        setBackup([...response.data]);
       } catch (error) {
         console.log(error);
       }
     }
     fetchAlbum();
-  }, []);
+    setRerender(false);
+  }, [rerender]);
 
   useEffect(() => {
     setCurrentPage(0);
   }, [itensPerPage]);
+
+  function filterAlbum(searchParams) {
+    if (searchParams === "") {
+      setAlbuns([...backup]);
+      return;
+    }
+
+    const filtered = albuns.filter((currentAlbum) => {
+      console.log(currentAlbum);
+      return (
+        currentAlbum.artist
+          .toLowerCase()
+          .includes(searchParams.toLowerCase()) ||
+        currentAlbum.albumName
+          .toLowerCase()
+          .includes(searchParams.toLowerCase())
+      );
+    });
+
+    setAlbuns(filtered);
+  }
 
   return (
     <div className="container mx-auto">
@@ -39,15 +65,24 @@ export function AlbumList() {
         </h1>
       </div>
 
-      <div>
-        <p>
-          <b>{albuns.length}</b> results found
-        </p>
-
-        <PaginationSelector
-          itensPerPage={itensPerPage}
-          setItensPerPage={setItensPerPage}
-        />
+      <div className="flex justify-between  ">
+        <div className="w-5/6">
+          <SearchBar
+            placeholder="Search for your favorite Album or Artist!"
+            filterList={filterAlbum}
+          />
+        </div>
+        <div>
+          <span>
+            <b>{albuns.length}</b> results found
+          </span>
+        </div>
+        <div>
+          <PaginationSelector
+            itensPerPage={itensPerPage}
+            setItensPerPage={setItensPerPage}
+          />
+        </div>
       </div>
 
       <div className="grid grid-cols-5 gap-4">

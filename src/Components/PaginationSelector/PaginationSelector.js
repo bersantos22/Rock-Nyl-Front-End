@@ -3,6 +3,7 @@ import React from "react";
 export function PaginationSelector({ itensPerPage, setItensPerPage }) {
   return (
     <div>
+      <b>Show: </b>
       <select
         value={itensPerPage}
         onChange={(e) => {
