@@ -5,12 +5,12 @@ import { useNavigate } from "react-router-dom";
 import { api } from "../../api/api";
 import { Button } from "../../Components/Button";
 import { FormField } from "../../Components/Forms/FormField";
+import { Link } from "react-router-dom";
 
 export function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
-  const { setLoggedInUser } = useContext(AuthContext);
+  const {setLoggedInUser} = useContext(AuthContext);
   const navigate = useNavigate();
-
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -25,7 +25,7 @@ export function Login() {
       setLoading(true);
       setError(null);
 
-      const response = await api.post("account/login", form);
+      const response = await api.post("/account/login", form);
 
       setLoggedInUser(response.data);
 
@@ -34,6 +34,7 @@ export function Login() {
       navigate("/myAccount");
     } catch (error) {
       setLoading(false);
+      console.log(error)
       if (error.response) {
         console.log(error.response);
         setError(error.response.data);
@@ -45,12 +46,12 @@ export function Login() {
 
   return (
     <div className="h-screen mt-5 mb-5 flex flex-col items-center">
-    <div className="title2 mt-1 mb-5">
+    <div className="title2 mt-1">
       <p>Login</p>
       </div>
 
-    <div className="container w-full h-screen flex flex-col items-center mr-0 mt-10 mb-5 ml-5">
-      <form className='bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4 mb-5 w-1/2'onSubmit={handleSubmit}>
+    <div className="container w-full h-screen flex flex-col items-center mt-10 ">
+      <form className='bg-white shadow-2xl rounded px-11 pt-6 pb-8 max-w-sm'onSubmit={handleSubmit}>
         <FormField
           type="email"
           label="E-mail"
@@ -72,8 +73,8 @@ export function Login() {
           onChange={handleChange}
           pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$"
         />
-
-        <Button type="submit" disabled={loading} className="bg-stone-800 hover:bg-amber-500 text-white font-bold py-2 px-4 m-2 mr-4 rounded focus:outline-none focus:shadow-outline">
+      <div className="flex items-center justify-between mt-7">
+        <Button type="submit" disabled={loading} className="bg-stone-800 hover:bg-amber-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-10">
           {loading ? (
             <div className="animate-spin" role="status">
               <span className="hidden">Loading...</span>
@@ -82,6 +83,11 @@ export function Login() {
             "Sign In"
           )}
         </Button>
+
+        <Link className="nav-link" to="/signUp">
+              <span className="inline-block align-baseline font-bold text-medium text-blue-500 hover:text-blue-800">Create Account</span>
+            </Link>
+          </div>
 
         {error ? <ErrorAlert>{error}</ErrorAlert> : null}
       </form>

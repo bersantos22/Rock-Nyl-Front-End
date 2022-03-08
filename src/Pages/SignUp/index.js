@@ -49,9 +49,9 @@ export function SignUp() {
 
   return (
     <div className="h-screen mt-5 mb-5 flex flex-col items-center">
-    <div className="title2 mt-1 mb-5">
-      <p>Sign Up</p>
-      </div>
+        <div className="title2 mt-1 mb-5">
+          <p>Sign Up</p>
+        </div>
 
       <form className='bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4 mb-5 w-1/2' onSubmit={handleSubmit}>
         <FormField

@@ -1,4 +1,4 @@
-import React, { useState, createContext, useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
 
 const AuthContext = createContext({ token: "", user: {} });
 
@@ -10,8 +10,8 @@ function AuthContextComponent(props) {
 
     const parsedStoredUser = JSON.parse(storedUser || '""');
 
-    if (parsedStoredUser.user) {
-      setLoggedInUser({ ...parsedStoredUser });
+    if (parsedStoredUser.token) {
+      setLoggedInUser(parsedStoredUser);
     }
   }, []);
 
@@ -22,4 +22,4 @@ function AuthContextComponent(props) {
   );
 }
 
-export { AuthContextComponent, AuthContext };
+export { AuthContext, AuthContextComponent };
