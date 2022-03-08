@@ -5,7 +5,7 @@ import "./SingleProduct.css";
 export function SingleProduct(props) {
   return (
     <div className="sectionSingle flex flex-row items-center container mx-auto ">
-      <div className="img-product container mx-auto">
+      <div className="img-product justify-center container mx-auto">
         <div className="imgLeft">
           <img className="imgProduct" src={props.img} alt="imgSingleProduct" />
         </div>
@@ -32,7 +32,7 @@ export function SingleProduct(props) {
           <p>{props.description}</p>
         </div>
 
-        <div className="divBtnProduct">
+        <div className="divBtnProduct mt-3">
           <Link to="#">
             <button type="button" className="btnProduct ">
               ADD TO BAG
@@ -42,6 +42,7 @@ export function SingleProduct(props) {
         <div className="productDetails">
           <span>Details: {props.details}</span>
         </div>
-
+    </div>
+  </div>
   );
 }

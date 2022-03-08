@@ -8,19 +8,22 @@
     margin-top: 0px;
     position: relative;
     width: 100%;
-    height: 700px;
+    height: 720px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 
 }
 
+.firstText{
+padding-left: 100px;
+}
+
 .bigText{
     font-family: 'Bebas Neue', cursive;
     font-size: 120px;
     font-weight: bolder;
-    color:white;
-    padding-left: 50px;
+    color:white; 
     margin-left: 50px;
     width: 800px;
     height: 350px;
@@ -36,7 +39,6 @@
     background-color: black;
     font-size: 55px;
     text-align: center;
-    margin-left: 100px;
     width: 300px;
     height: 75px;
     font-weight: bold;
@@ -45,11 +47,7 @@
 }
 
 @media (max-width:1350px) {
- /*    .section1{
 
-        width: 300px;
-        height: 450px;
-    } */
     .bigText{
     font-size: 80px;
     padding-left: 10px;
@@ -60,10 +58,12 @@
     margin-bottom: 10px;
     }
 
+    .firstText{
+        padding-left: 10px;
+    }
     .littleText{
        
         font-size: 35px;
-
         margin-left: 10px;
         width: 200px;
         height: 50px;

@@ -30,7 +30,7 @@ export function ProductPage() {
   }, [params.id]);
 
   return (
-    <>
+    <section className='mt-10 mb-5'>
       <SingleProduct
         img={album.url_img}
         artist={album.artist}
@@ -42,6 +42,6 @@ export function ProductPage() {
       />
 
       <Section2 />
-    </>
+    </section>
   );
 }
