@@ -1,7 +1,6 @@
 import React from "react";
-import './Forms.css'
 
-export function Forms(props){
+export function FormsLogin(props){
     return(
         <>
 <div className="w-full max-w-xs">
@@ -33,7 +32,7 @@ export function Forms(props){
             required={props.required2}
             pattern={props.pattern}
             readOnly={props.readOnly2}  placeholder="******************"/>
-        <p className="text-red-500 text-xs italic">Please choose a password.</p>
+        <p className="hidden text-red-500 text-xs italic">Please choose a password.</p>
         </div>
 
         <div className="flex items-center justify-between">

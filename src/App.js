@@ -9,7 +9,8 @@ import { ArtistList } from "./Pages/ArtistList/ArtistList";
 import { AlbumList } from "./Pages/AlbumList/AlbumList";
 import { ProductPage } from "./Pages/ProductPage/ProductPage";
 import { AlbunsArtist } from "./Pages/AlbunsArtist/AlbunsArtist";
-import { Forms } from "./Components/Forms/Forms";
+import { MyAccount } from "./Pages/MyAccount/MyAccount";
+import { ProtectedRoute } from "./Components/ProtectedRoute";
 
 function App() {
   return (
@@ -25,6 +26,11 @@ function App() {
           <Route path="/genres-list" element={<AlbumList />} />
           <Route path="/product/album/:id" element={<ProductPage />} />
           <Route path="/product/artist/:artist" element={<AlbunsArtist />} />
+          <Route
+            path="/myAccount"
+            element={<ProtectedRoute component={MyAccount} />}
+          />
+
 
         </Routes>
 
