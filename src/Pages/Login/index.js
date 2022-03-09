@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 export function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
-  const {setLoggedInUser} = useContext(AuthContext);
+  const { setLoggedInUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -34,7 +34,7 @@ export function Login() {
       navigate("/myAccount");
     } catch (error) {
       setLoading(false);
-      console.log(error)
+      console.log(error);
       if (error.response) {
         console.log(error.response);
         setError(error.response.data);
@@ -46,52 +46,61 @@ export function Login() {
 
   return (
     <div className="h-screen mt-5 mb-5 flex flex-col items-center">
-    <div className="title2 mt-1">
-      <p>Login</p>
+      <div className="title2 mt-1">
+        <p>Login</p>
       </div>
 
-    <div className="container w-full h-screen flex flex-col items-center mt-10 ">
-      <form className='bg-white shadow-2xl rounded px-11 pt-6 pb-8 max-w-sm'onSubmit={handleSubmit}>
-        <FormField
-          type="email"
-          label="E-mail"
-          id="loginFormEmail"
-          name="email"
-          onChange={handleChange}
-          value={form.email}
-          required={true}
-          readOnly={loading}
-        />
-        <FormField
-          type="password"
-          label="Senha"
-          id="loginFormPassword"
-          required={true}
-          readOnly={loading}
-          name="password"
-          value={form.password}
-          onChange={handleChange}
-          pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$"
-        />
-      <div className="flex items-center justify-between mt-7">
-        <Button type="submit" disabled={loading} className="bg-blue-700 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-10">
-          {loading ? (
-            <div className="animate-spin" role="status">
-              <span className="hidden">Loading...</span>
-            </div>
-          ) : (
-            "Sign In"
-          )}
-        </Button>
+      <div className="container w-full h-screen flex flex-col items-center mt-10 ">
+        <form
+          className="bg-white shadow-2xl rounded px-11 pt-6 pb-8 max-w-sm"
+          onSubmit={handleSubmit}
+        >
+          <FormField
+            type="email"
+            label="E-mail"
+            id="loginFormEmail"
+            name="email"
+            onChange={handleChange}
+            value={form.email}
+            required={true}
+            readOnly={loading}
+          />
+          <FormField
+            type="password"
+            label="Senha"
+            id="loginFormPassword"
+            required={true}
+            readOnly={loading}
+            name="password"
+            value={form.password}
+            onChange={handleChange}
+            pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$"
+          />
+          <div className="flex items-center justify-between mt-7">
+            <Button
+              type="submit"
+              disabled={loading}
+              className="bg-blue-700 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-10"
+            >
+              {loading ? (
+                <div className="animate-spin" role="status">
+                  <span className="hidden">Loading...</span>
+                </div>
+              ) : (
+                "Sign In"
+              )}
+            </Button>
 
-        <Link className="nav-link" to="/signUp">
-              <span className="inline-block align-baseline font-bold text-medium text-blue-500 hover:text-blue-800">Create Account</span>
+            <Link className="nav-link" to="/forgot-password">
+              <span className="inline-block align-baseline font-bold text-medium text-blue-500 hover:text-blue-800">
+                Forgot Password?
+              </span>
             </Link>
           </div>
 
-        {error ? <ErrorAlert>{error}</ErrorAlert> : null}
-      </form>
+          {error ? <ErrorAlert>{error}</ErrorAlert> : null}
+        </form>
+      </div>
     </div>
-  </div>
   );
 }

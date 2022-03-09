@@ -15,6 +15,8 @@ import { ProtectedRoute } from "./Components/ProtectedRoute";
 import { AuthContextComponent } from "./contexts/authContext";
 import { EditAccount } from "./Pages/EditAccount/EditAccount";
 import { EditProduct } from "./Pages/EditProduct/EditProduct";
+import { ForgotPassword } from "./Pages/ForgotPassword/ForgotPassword";
+import { NewPassword } from "./Pages/NewPassword/NewPassword";
 
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
             <Route path="/product/album/:id" element={<ProductPage />} />
             <Route path="/product/artist/:artist" element={<AlbunsArtist />} />
             <Route path="/adm/create-product" element={<CreateProduct />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/new-password/:token" element={<NewPassword />} />
             <Route
               path="/myAccount"
               element={<ProtectedRoute component={MyAccount} />}
