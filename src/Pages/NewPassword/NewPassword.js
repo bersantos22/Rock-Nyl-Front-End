@@ -1,17 +1,16 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { api } from "../../api/api";
 
 import { FormField } from "../../Components/Forms/FormField";
 import { ErrorAlert } from "../../Components/ErrorAlert";
 import { Button } from "../../Components/Button";
 
-export function SignUp() {
+export function NewPassword() {
   const navigate = useNavigate();
+  const params = useParams();
   const [form, setForm] = useState({
-    name: "",
-    email: "",
-    password: "",
+    newPassword: "",
     confirmPassword: "",
   });
   const [error, setError] = useState(null);
@@ -24,16 +23,11 @@ export function SignUp() {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    if (!(form.password === form.confirmPassword)) {
-      setError("Senha e confirmação não são iguais.");
-      return;
-    }
-
     try {
       setLoading(true);
       setError(null);
 
-      await api.post("/account/signup", form);
+      await api.put(`/password/reset-password/${params.token}`, form);
       setLoading(false);
       navigate("/login");
     } catch (error) {
@@ -49,38 +43,21 @@ export function SignUp() {
 
   return (
     <div className="h-screen mt-5 mb-5 flex flex-col items-center">
-        <div className="title2 mt-1 mb-5">
-          <p>Sign Up</p>
-        </div>
+      <div className="title2 mt-1 mb-5">
+        <p>Forgot Password</p>
+      </div>
 
-      <form className='bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4 mb-5 w-1/2' onSubmit={handleSubmit}>
-        <FormField
-          label="Full Name"
-          id="signUpFormName"
-          name="name"
-          onChange={handleChange}
-          value={form.name}
-          required={true}
-          readOnly={loading}
-        />
-
-        <FormField
-          type="email"
-          label="E-mail"
-          id="signUpEmail"
-          name="email"
-          onChange={handleChange}
-          value={form.email}
-          required={true}
-          readOnly={loading}
-        />
+      <form
+        className="bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4 mb-5 w-1/2"
+        onSubmit={handleSubmit}
+      >
         <FormField
           type="password"
-          label="Senha"
-          id="signUpPassword"
+          label="New Password"
+          id="new-password"
           required={true}
           readOnly={loading}
-          name="password"
+          name="newPassword"
           value={form.password}
           onChange={handleChange}
           pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$"
@@ -88,8 +65,8 @@ export function SignUp() {
 
         <FormField
           type="password"
-          label="Confirmação de senha"
-          id="signUpConfirmPassword"
+          label="Confirm New Password"
+          id="confirm-password"
           required={true}
           readOnly={loading}
           name="confirmPassword"
@@ -98,13 +75,17 @@ export function SignUp() {
           pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$"
         />
 
-        <Button type="submit" disabled={loading} className="bg-stone-800 hover:bg-amber-500 text-white font-bold py-2 px-4 mt-3 rounded focus:outline-none focus:shadow-outline">
+        <Button
+          type="submit"
+          disabled={loading}
+          className="bg-stone-800 hover:bg-amber-500 text-white font-bold py-2 px-4 mt-3 rounded focus:outline-none focus:shadow-outline"
+        >
           {loading ? (
             <div className="animate-spin" role="status">
               <span className="hidden">Loading...</span>
             </div>
           ) : (
-            "Cadastrar"
+            "Reset Password"
           )}
         </Button>
 

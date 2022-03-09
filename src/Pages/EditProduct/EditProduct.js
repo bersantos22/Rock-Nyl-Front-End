@@ -1,19 +1,47 @@
 import { api } from "../../api/api";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import schema from "../../utility/CreateProductschema.js";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-export function CreateProduct() {
+export function EditProduct() {
+  const params = useParams();
+  const [form, setForm] = useState({
+    artist: "",
+    albumName: "",
+    description: "",
+    type: "",
+    details: "",
+    stock: "",
+    price: "",
+  });
+  console.log(form);
+
+  useEffect(() => {
+    async function getAlbum() {
+      try {
+        const findAlbum = await api.get(`/product/album/${params.id}`);
+
+        setForm(findAlbum.data[0]);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    getAlbum();
+  }, [params]);
+
   async function onSubmit(values) {
     try {
       const uploadData = new FormData();
       uploadData.append("picture", values.url_img);
+
       const upload = await api.post("/upload", uploadData);
 
-      const productCreated = await await api.post("/product/create-product", {
+      await api.patch(`product/edit-product/${params.id}`, {
         ...values,
         url_img: upload.data.url,
       });
-      window.location.href = `/product/album/${productCreated.data._id}`;
+      window.location.href = `/product/album/${params.id}`;
     } catch (error) {
       console.error(error);
     }
@@ -38,15 +66,7 @@ export function CreateProduct() {
         onSubmit={onSubmit}
         validateOnMount
         setFieldValue
-        initialValues={{
-          artist: "",
-          albumName: "",
-          description: "",
-          type: "",
-          details: "",
-          stock: "",
-          price: "",
-        }}
+        initialValues={form}
       >
         {({ isValid, setFieldValue, handleSubmit }) => (
           <Form>
@@ -91,7 +111,7 @@ export function CreateProduct() {
             </div>
             <div>
               <label>Stock:</label>
-              <Field name="stock" type="number" />
+              <Field name="stock" ype="number" />
               <div>
                 <ErrorMessage name="stock" />
               </div>

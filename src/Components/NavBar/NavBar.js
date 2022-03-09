@@ -40,13 +40,8 @@ export function NavBar() {
           </li>
 
           <li className="listLi">
-            <Link className="nav-link" to="/aboutUs">
+            <Link className="nav-link" to="/myAccount">
               My Account
-            </Link>
-          </li>
-          <li className="listLi">
-            <Link className="nav-link" to="/signUp">
-              Sign Up
             </Link>
           </li>
           <li className="listLi">
@@ -55,8 +50,13 @@ export function NavBar() {
             </Link>
           </li>
           <li className="listLi">
+<<<<<<< HEAD
             <Link className="nav-link text-light" to="/cart">
               Cart
+=======
+            <Link className="nav-link" to="/signUp">
+              Sign Up
+>>>>>>> d8c4b538a9e86c2485c3296eedc1aded9d9d48de
             </Link>
           </li>
         </ul>
