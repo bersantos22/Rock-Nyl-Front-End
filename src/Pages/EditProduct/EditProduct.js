@@ -15,13 +15,11 @@ export function EditProduct() {
     stock: "",
     price: "",
   });
-  console.log(form);
 
   useEffect(() => {
     async function getAlbum() {
       try {
         const findAlbum = await api.get(`/product/album/${params.id}`);
-
         setForm(findAlbum.data[0]);
       } catch (error) {
         console.error(error);
@@ -67,6 +65,7 @@ export function EditProduct() {
         validateOnMount
         setFieldValue
         initialValues={form}
+        enableReinitialize
       >
         {({ isValid, setFieldValue, handleSubmit }) => (
           <Form>
@@ -116,19 +115,19 @@ export function EditProduct() {
                 <ErrorMessage name="stock" />
               </div>
             </div>
-            <Form onSubmit={handleSubmit}>
-              <div>
-                <label for="file">Album Picture</label>
-                <input
-                  id="url_img"
-                  name="url_img"
-                  type="file"
-                  onChange={(event) => {
-                    setFieldValue("url_img", event.currentTarget.files[0]);
-                  }}
-                />
-              </div>
-            </Form>
+
+            <div onSubmit={handleSubmit}>
+              <label htmlFor="file">Album Picture</label>
+              <input
+                id="url_img"
+                name="url_img"
+                type="file"
+                onChange={(event) => {
+                  setFieldValue("url_img", event.currentTarget.files[0]);
+                }}
+              />
+            </div>
+
             <button type="submit" disabled={!isValid}>
               Enviar
             </button>
