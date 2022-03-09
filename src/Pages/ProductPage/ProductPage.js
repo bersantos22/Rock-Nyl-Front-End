@@ -41,7 +41,7 @@ export function ProductPage() {
         details={album.details}
       />
 
-      <Section2 />
+
     </section>
   );
 }
