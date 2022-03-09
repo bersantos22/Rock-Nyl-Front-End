@@ -1,9 +1,8 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Footer } from "./Components/Footer/Footer";
+/* import { Footer } from "./Components/Footer/Footer"; */
 import { Login } from "./Pages/Login/index";
 import { SignUp } from "./Pages/SignUp";
-import { NavBar } from "./Components/NavBar/NavBar";
 import { Homepage } from "./Pages/HomePage/Homepage";
 import { ArtistList } from "./Pages/ArtistList/ArtistList";
 import { AlbumList } from "./Pages/AlbumList/AlbumList";
@@ -18,21 +17,24 @@ import { EditProduct } from "./Pages/EditProduct/EditProduct";
 import { ForgotPassword } from "./Pages/ForgotPassword/ForgotPassword";
 import { NewPassword } from "./Pages/NewPassword/NewPassword";
 import {Cart} from "./Pages/Cart"
+import { Footer2 } from "./Components/Footer/Footer2";
+import {NavBar2} from "./Components/NavBar/NavBar2"
 
 function App() {
   return (
-    
     <BrowserRouter>
       <AuthContextComponent>
         <div className="appClass">
-          <NavBar />
+      
+          <NavBar2 /> 
+        
 
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/" element={<Homepage />} />
             <Route path="/artists-list" element={<ArtistList />} />
-            <Route path="/genres-list" element={<AlbumList />} />
+            <Route path="/albuns-list" element={<AlbumList />} />
             <Route path="/product/album/:id" element={<ProductPage />} />
             <Route path="/product/artist/:artist" element={<AlbunsArtist />} />
             <Route path="/adm/create-product" element={<CreateProduct />} />
@@ -53,12 +55,11 @@ function App() {
             />
             <Route path="/cart" element={<Cart />} />
           </Routes>
-
-          <Footer />
+          
+          <Footer2 />
         </div>
       </AuthContextComponent>
     </BrowserRouter>
-    
   );
 }
 

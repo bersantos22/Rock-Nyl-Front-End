@@ -9,7 +9,7 @@ export function ArtistList() {
   const [artists, setArtists] = useState([]);
   const [rerender, setRerender] = useState(true);
   const [backup, setBackup] = useState([]);
-  const [itensPerPage, setItensPerPage] = useState(30);
+  const [itensPerPage, setItensPerPage] = useState(90);
   const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
@@ -81,21 +81,33 @@ export function ArtistList() {
             <b>{filterDuplicatesArtists.length}</b> results found
           </span>
         </div>
-        <div>
+        <div className="hidden ">
           <PaginationSelector
             itensPerPage={itensPerPage}
             setItensPerPage={setItensPerPage}
           />
         </div>
       </div>
-
       <div>
-        <ul>
+        <a href="/">ALL</a>
+        <a href="/">A</a>
+        <a href="/">B</a>
+        <a href="/">C</a>
+      </div>
+      <div className="flex ">
+        <ul className="grid grid-flow-col grid-rows-12 gap-1">
           {currentItens.map((currentArtist) => {
             return (
-              <Link key={currentArtist} to={`/product/artist/${currentArtist}`}>
-                <li key={currentArtist}>{currentArtist}</li>
-              </Link>
+              <li className="m-2 hover:text-sky-400" key={currentArtist}>
+                <Link
+                  key={currentArtist}
+                  to={`/product/artist/${currentArtist}`}
+                >
+                  {currentArtist.length > 20
+                    ? `${currentArtist.substring(0, 20)} ...`
+                    : `${currentArtist}`}
+                </Link>
+              </li>
             );
           })}
         </ul>
