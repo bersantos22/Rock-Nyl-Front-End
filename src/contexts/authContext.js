@@ -12,6 +12,8 @@ function AuthContextComponent(props) {
 
     if (parsedStoredUser.token) {
       setLoggedInUser(parsedStoredUser);
+    } else {
+      setLoggedInUser(null);
     }
   }, []);
 

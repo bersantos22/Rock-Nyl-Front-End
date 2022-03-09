@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap');
-nav{
+.navClass{
     font-family: 'Bebas Neue';
-    font-size: 40px;
     background-color:#1d1c1c;
     font-weight: bold;
     padding: 10px;
@@ -17,7 +16,7 @@ nav{
     
 }
 .imgVinyl{
-    width: 70px;
+    width: 55px;
 }
 .Link-Nav{
     text-decoration: none;
@@ -28,16 +27,17 @@ nav{
     align-items: center;
     justify-content: space-around;
     width: 250px;
-    font-size: 50px;
+    font-size: 2.8rem;
 }
-
+.textRobot{
+    font-family: 'Roboto', sans-serif;
+}
 .listUl{
     font-family: 'Roboto', sans-serif;
     display: flex;
     justify-content: space-between;
     list-style-type: none;
     text-decoration: none;
-    font-size: 20px;
 }
 
 nav a{
@@ -46,10 +46,6 @@ nav a{
     
 }
 
-.listLi{
-    padding:17px;
-
-}
 
 .nav-link:hover{
     color:#e5840f;

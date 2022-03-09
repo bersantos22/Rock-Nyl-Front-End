@@ -3,12 +3,21 @@ import { Link, useParams } from "react-router-dom";
 import "./SingleProduct.css";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/authContext";
+import { api } from "../../api/api";
 
 export function SingleProduct(props) {
   const { loggedInUser } = useContext(AuthContext);
   const params = useParams();
-
   console.log(params.id);
+
+  async function handleDelete() {
+    try {
+      await api.delete(`/product/delete-product/${params.id}`);
+      window.location.href = "/albuns-list";
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   return (
     <div className="sectionSingle flex flex-row items-center container mx-auto ">
@@ -50,11 +59,29 @@ export function SingleProduct(props) {
           <span>Details: {props.details}</span>
         </div>
         <div>
-          {loggedInUser.user.role === "ADMIN" ? (
-            <Link to={`/edit-product/${params.id}`}>EDIT PRODUCT</Link>
-          ) : (
-            <span></span>
-          )}
+          <div>
+            {loggedInUser.user.role === "ADMIN" ? (
+              <Link to={`/edit-product/${params.id}`}>
+                <button className="bg-blue-800 hover:bg-blue-400 text-white font-bold py-2 px-4 mt-3 rounded focus:outline-none focus:shadow-outline mr-6">
+                  Edit Product
+                </button>
+              </Link>
+            ) : (
+              <span></span>
+            )}
+          </div>
+          <div>
+            {loggedInUser.user.role === "ADMIN" ? (
+              <button
+                className="bg-red-800 hover:bg-red-400 text-white font-bold py-2 px-6 mt-3 rounded focus:outline-none focus:shadow-outline mr-6 "
+                onClick={handleDelete}
+              >
+                Delete Product
+              </button>
+            ) : (
+              <span></span>
+            )}
+          </div>
         </div>
       </div>
     </div>
