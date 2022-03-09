@@ -16,15 +16,17 @@ export function EditAccount() {
   useEffect(() => {
     async function fetchForm() {
       try {
-        const response = await api.get(`/account/profile/update`);
+        const response = await api.get(`/account/profile`)
         setForm({ ...response.data });
       } catch (err) {
         console.error(err);
       }
     }
 
+   
     fetchForm();
   }, []);
+
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -33,12 +35,12 @@ export function EditAccount() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    for (let key in form) {
-      if (!form[key]) {
-        window.alert(`Preencher o campo ${key}.`);
-        return;
-      }
-    }
+   /*  for(let key in form){
+        if(!form[key]){
+            window.alert(`Preencher o campo ${key}.`);
+            return;
+        }
+    } */
 
     async function updateForm(id) {
       try {
