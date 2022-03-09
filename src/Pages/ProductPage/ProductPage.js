@@ -32,13 +32,7 @@ export function ProductPage() {
   }, [params.id]);
 
   return (
-<<<<<<< HEAD
-    
-    <section className='mt-10 mb-5'>
-      
-=======
     <section className='w-full mt-10 mb-12 pr-3'>
->>>>>>> d8c4b538a9e86c2485c3296eedc1aded9d9d48de
       <SingleProduct
         img={album.url_img}
         artist={album.artist}
