@@ -1,75 +1,94 @@
-import { useParams } from 'react-router-dom';
-import {useEffect, useState} from 'react'
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import {AuthContext} from "../../contexts/authContext"
+import {useEffect, useState, useContext} from 'react'
 import { api } from '../../api/api';
 import { Button } from '../../Components/Button/index'
 import { FormField } from '../../Components/Forms/FormField';
 
 export function EditAccount(){
-    const params =useParams();
-    const [form,setForm] = useState({});
 
-    useEffect(()=>{
-        async function fetchEditAcc(){
-            try{
-                const response = await api.get(`/account/profile/update/${params.id}`);
-                setForm({...response.data});
+  const { loggedInUser } = useContext(AuthContext);
+  const { id } = useParams();
 
-            }catch(error){
-                console.log(error)
-            }
-        }
-        fetchEditAcc()
-    },[]);
 
-    function handleChange(event){
-        setForm({...form, [event.target.name]:event.target.value});
-        console.log(form);
+  const [form, setForm] = useState({
+      name:''
+  });
+
+  useEffect(() => {
+    async function fetchForm() {
+      try {
+        const response = await api.get(`/account/profile/update`);
+        setForm({ ...response.data });
+      } catch (err) {
+        console.error(err);
+      }
     }
 
-        function handleSubmit(event){
-            event.preventDefault();
+    fetchForm();
+  }, []);
 
-            for(let key in form){
-                if(!form[key]){
-                    window.alert(`Preencher o campo ${key}.`);
-                    return;
-                }
-            }
-        
-        
+  function handleChange(e) {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  }
+
+
+  function handleSubmit(e) {
+    e.preventDefault();
     
-        api.put(`/account/profile/update/${params.id}`, form)
-        .then((result) => { console.log(result);
-             window.location.href="/myAccount"}).catch ((error)=>{
-            console.error(error);
-        });
-   
+    for(let key in form){
+        if(!form[key]){
+            window.alert(`Preencher o campo ${key}.`);
+            return;
+        }
     }
+
+    async function updateForm(id) {
+      try {
+
+        await api.patch(`account/profile/update`, {
+          ...form,
+          userId: loggedInUser.token._id,
+        });
+        window.location.href="/myAccount";
+       
+      } catch (err) {
+        console.log(err);
+       
+      }
+    }
+    updateForm(id);
+  }
+
     return(
-        <>
-            <form onSubmit={handleSubmit}>
+        <div className="h-screen mt-5 mb-5 flex flex-col items-center">
+            <div className="title2 mt-1 mb-5">
+            <p>Edit Account</p>
+            </div>
+                <form className='bg-white shadow-2xl rounded px-12 pt-6 pb-8 mb-5 w-1/4' onSubmit={handleSubmit}>
 
-            <FormField
-               label='Full Name'
-               id='name'
-               name='name'
-               value={form.name}
-               onChange={handleChange} 
-            />
-            <FormField
-               label='E-mail'
-               type='email'
-               id='emailEdit'
-               name='email'
-               value={form.email}
-               onChange={handleChange} 
-            />
+                <FormField
+                label='Full Name'
+                id='name'
+                name='name'
+                value={form.name}
+                onChange={handleChange} 
+                />
+            {/*  <FormField
+                label='E-mail'
+                type='email'
+                id='emailEdit'
+                name='email'
+                value={form.email}
+                onChange={handleChange} 
+                /> */}
 
 
-            <Button type="submit" className="bg-stone-800 hover:bg-amber-500 text-white font-bold py-2 px-4 mt-3 rounded focus:outline-none focus:shadow-outline" >
-            Submit Edit
-            </Button>
-            </form>
-        </>
+                <Button type="submit" className="bg-green-600 hover:bg-green-400 text-white font-bold py-2 px-4 mt-3 rounded focus:outline-none focus:shadow-outline" >
+                Submit Edit
+                </Button>
+                </form>
+        </div>
     )
     }
