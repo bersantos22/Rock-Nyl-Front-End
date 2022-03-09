@@ -24,8 +24,6 @@ export function NavBar() {
             <Link className="nav-link text-light" to="/artists-list">
               Shop By Artist    
             </Link>
-      
-
             </li>
 
             <li className="listLi">
@@ -49,6 +47,11 @@ export function NavBar() {
                 Sign Up
               </Link>
             </li>
+            <li className="listLi">
+              <Link className="nav-link" to="/cart">
+                Cart
+            </Link>
+          </li>
           </ul>
         </div>
       </div>

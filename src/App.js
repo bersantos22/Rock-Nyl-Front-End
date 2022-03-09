@@ -16,9 +16,9 @@ import { EditAccount } from "./Pages/EditAccount/EditAccount";
 import { EditProduct } from "./Pages/EditProduct/EditProduct";
 import { ForgotPassword } from "./Pages/ForgotPassword/ForgotPassword";
 import { NewPassword } from "./Pages/NewPassword/NewPassword";
+import {Cart} from "./Pages/Cart"
 import { Footer2 } from "./Components/Footer/Footer2";
 import {NavBar2} from "./Components/NavBar/NavBar2"
-
 
 function App() {
   return (
@@ -53,6 +53,7 @@ function App() {
               path="/edit-product/:id"
               element={<ProtectedRoute component={EditProduct} />}
             />
+            <Route path="/cart" element={<Cart />} />
           </Routes>
           
           <Footer2 />
