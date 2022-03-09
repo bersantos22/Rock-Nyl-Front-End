@@ -1,14 +1,22 @@
 import { Link } from "react-router-dom";
-import React from "react";
+import  { useContext } from "react";
 import "./NavBar.css";
 import vinyl from "../../images/kindpng_810924.png";
 
+
+
+
+
 export function NavBar() {
+    
   return (
+    
     <nav className="w-full">
+      
     <div className="divNav w-full">
+      
       <div className="iconTitle">
-        <div>
+         <div>
           <img className="imgVinyl" src={vinyl} alt="discImg"></img>
         </div>
         <div className="titleNav">
@@ -42,8 +50,13 @@ export function NavBar() {
             </Link>
           </li>
           <li className="listLi">
+<<<<<<< HEAD
+            <Link className="nav-link text-light" to="/cart">
+              Cart
+=======
             <Link className="nav-link" to="/signUp">
               Sign Up
+>>>>>>> d8c4b538a9e86c2485c3296eedc1aded9d9d48de
             </Link>
           </li>
         </ul>

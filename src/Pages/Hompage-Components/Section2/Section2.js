@@ -1,6 +1,10 @@
 import React from "react";
 import "./Section2.css";
 import { LittleCard } from '../../../Components/LittleCard/LittleCard';
+<<<<<<< HEAD
+import imgTeste from '../../../images/nirvanatestando-removebg-preview.png'
+import { useCart } from "../../../contexts/CartContext/CartContext";
+=======
 import imgNirvana from '../../../images/nirvanatestando-removebg-preview.png'
 import imgBaeatles from '../../../images/beatles.png'
 import imgBlink from '../../../images/blink182.png'
@@ -11,8 +15,10 @@ import imgU2 from '../../../images/u2.png'
 import imgThe20one from '../../../images/twentyonepil.png';
 import imgTheWho from '../../../images/thewho.webp';
 
+>>>>>>> d8c4b538a9e86c2485c3296eedc1aded9d9d48de
 
 export function Section2() {
+  
   return (
     <section className="section2 container mx-auto mt-5 mb-10">
       <div className="title2 mt-3 mb-5">
