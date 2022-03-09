@@ -12,38 +12,43 @@ import { AlbunsArtist } from "./Pages/AlbunsArtist/AlbunsArtist";
 import { CreateProduct } from "./Pages/CreateProduct/CreateProduct";
 import { MyAccount } from "./Pages/MyAccount/MyAccount";
 import { ProtectedRoute } from "./Components/ProtectedRoute";
-import {AuthContextComponent} from './contexts/authContext'
-import {EditAccount} from './Pages/EditAccount/EditAccount'
+import { AuthContextComponent } from "./contexts/authContext";
+import { EditAccount } from "./Pages/EditAccount/EditAccount";
+import { EditProduct } from "./Pages/EditProduct/EditProduct";
 
 function App() {
   return (
     <BrowserRouter>
-    <AuthContextComponent>
-      <div className="appClass">
-        <NavBar />
+      <AuthContextComponent>
+        <div className="appClass">
+          <NavBar />
 
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/" element={<Homepage />} />
-          <Route path="/artists-list" element={<ArtistList />} />
-          <Route path="/genres-list" element={<AlbumList />} />
-          <Route path="/product/album/:id" element={<ProductPage />} />
-          <Route path="/product/artist/:artist" element={<AlbunsArtist />} />
-          <Route path="/adm/create-product" element={<CreateProduct />} />
-          <Route
-            path="/myAccount"
-            element={<ProtectedRoute component={MyAccount} />}
-          />
-          <Route
-          path="/editAccount"
-          element={<ProtectedRoute component={EditAccount} />}
-          />
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/" element={<Homepage />} />
+            <Route path="/artists-list" element={<ArtistList />} />
+            <Route path="/genres-list" element={<AlbumList />} />
+            <Route path="/product/album/:id" element={<ProductPage />} />
+            <Route path="/product/artist/:artist" element={<AlbunsArtist />} />
+            <Route path="/adm/create-product" element={<CreateProduct />} />
+            <Route
+              path="/myAccount"
+              element={<ProtectedRoute component={MyAccount} />}
+            />
+            <Route
+              path="/editAccount"
+              element={<ProtectedRoute component={EditAccount} />}
+            />
 
-        </Routes>
+            <Route
+              path="/edit-product/:id"
+              element={<ProtectedRoute component={EditProduct} />}
+            />
+          </Routes>
 
-        <Footer />
-      </div>
+          <Footer />
+        </div>
       </AuthContextComponent>
     </BrowserRouter>
   );
