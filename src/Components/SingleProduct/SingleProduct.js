@@ -8,8 +8,6 @@ export function SingleProduct(props) {
   const { loggedInUser } = useContext(AuthContext);
   const params = useParams();
 
-  console.log(params.id);
-
   return (
     <div className="sectionSingle flex flex-row items-center container mx-auto ">
       <div className="img-product justify-center container mx-auto">
