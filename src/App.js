@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 /* import { Footer } from "./Components/Footer/Footer"; */
 import { Login } from "./Pages/Login/index";
 import { SignUp } from "./Pages/SignUp";
-import { NavBar } from "./Components/NavBar/NavBar";
 import { Homepage } from "./Pages/HomePage/Homepage";
 import { ArtistList } from "./Pages/ArtistList/ArtistList";
 import { AlbumList } from "./Pages/AlbumList/AlbumList";
@@ -26,7 +25,7 @@ function App() {
     <BrowserRouter>
       <AuthContextComponent>
         <div className="appClass">
-         {/*  <NavBar /> */}
+      
           <NavBar2 /> 
         
 
