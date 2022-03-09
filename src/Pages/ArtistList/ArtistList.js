@@ -98,7 +98,7 @@ export function ArtistList() {
         <ul className="grid grid-flow-col grid-rows-12 gap-1">
           {currentItens.map((currentArtist) => {
             return (
-              <li className="m-2" key={currentArtist}>
+              <li className="m-2 hover:text-sky-400" key={currentArtist}>
                 <Link
                   key={currentArtist}
                   to={`/product/artist/${currentArtist}`}
