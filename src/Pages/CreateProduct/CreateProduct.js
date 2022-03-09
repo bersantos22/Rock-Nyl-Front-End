@@ -9,10 +9,11 @@ export function CreateProduct() {
       uploadData.append("picture", values.url_img);
       const upload = await api.post("/upload", uploadData);
 
-      await await api.post("/product/create-product", {
+      const productCreated = await await api.post("/product/create-product", {
         ...values,
         url_img: upload.data.url,
       });
+      window.location.href = `/product/album/${productCreated.data._id}`;
     } catch (error) {
       console.error(error);
     }

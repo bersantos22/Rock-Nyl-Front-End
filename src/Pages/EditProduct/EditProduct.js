@@ -1,7 +1,7 @@
 import { api } from "../../api/api";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import schema from "../../utility/CreateProductschema.js";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export function EditProduct() {
@@ -37,10 +37,11 @@ export function EditProduct() {
 
       const upload = await api.post("/upload", uploadData);
 
-      await api.patch(`/edit-product/${params.id}`, {
+      await api.patch(`product/edit-product/${params.id}`, {
         ...values,
         url_img: upload.data.url,
       });
+      window.location.href = `/product/album/${params.id}`;
     } catch (error) {
       console.error(error);
     }
