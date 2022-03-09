@@ -20,7 +20,6 @@ import { NewPassword } from "./Pages/NewPassword/NewPassword";
 
 function App() {
   return (
-    
     <BrowserRouter>
       <AuthContextComponent>
         <div className="appClass">
@@ -31,7 +30,7 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/" element={<Homepage />} />
             <Route path="/artists-list" element={<ArtistList />} />
-            <Route path="/genres-list" element={<AlbumList />} />
+            <Route path="/albuns-list" element={<AlbumList />} />
             <Route path="/product/album/:id" element={<ProductPage />} />
             <Route path="/product/artist/:artist" element={<AlbunsArtist />} />
             <Route path="/adm/create-product" element={<CreateProduct />} />
@@ -56,7 +55,6 @@ function App() {
         </div>
       </AuthContextComponent>
     </BrowserRouter>
-    
   );
 }
 
