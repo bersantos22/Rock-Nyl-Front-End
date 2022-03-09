@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap');
-footer{
+.footerClass{
     margin: 0px;
     padding: 0px;
     background-color:#1d1c1c ;
@@ -9,6 +9,16 @@ footer{
     text-align: center;
     align-items: center;
     margin-top: 15px;
+}
+
+.bgRock{
+background-color:#1d1c1c;
+font-family: 'Bebas Neue';
+
+}
+
+.text-footer{
+    font-size: 2.5rem;
 }
 
 .TextFooter{
@@ -27,6 +37,9 @@ footer{
     justify-content: space-evenly;
 }
 
+.footerBot{
+    border-top: 1px solid rgba(237, 237, 237, 0.329);
+}
 
 .footer-bottom {
     padding: 20px 0 5px;

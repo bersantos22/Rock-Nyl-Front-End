@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Footer } from "./Components/Footer/Footer";
+/* import { Footer } from "./Components/Footer/Footer"; */
 import { Login } from "./Pages/Login/index";
 import { SignUp } from "./Pages/SignUp";
 import { NavBar } from "./Components/NavBar/NavBar";
@@ -17,13 +17,18 @@ import { EditAccount } from "./Pages/EditAccount/EditAccount";
 import { EditProduct } from "./Pages/EditProduct/EditProduct";
 import { ForgotPassword } from "./Pages/ForgotPassword/ForgotPassword";
 import { NewPassword } from "./Pages/NewPassword/NewPassword";
+import { Footer2 } from "./Components/Footer/Footer2";
+import {NavBar2} from "./Components/NavBar/NavBar2"
+
 
 function App() {
   return (
     <BrowserRouter>
       <AuthContextComponent>
         <div className="appClass">
-          <NavBar />
+         {/*  <NavBar /> */}
+          <NavBar2 /> 
+        
 
           <Routes>
             <Route path="/login" element={<Login />} />
@@ -50,8 +55,8 @@ function App() {
               element={<ProtectedRoute component={EditProduct} />}
             />
           </Routes>
-
-          <Footer />
+          
+          <Footer2 />
         </div>
       </AuthContextComponent>
     </BrowserRouter>

@@ -1,5 +1,6 @@
 import React from "react";
 import "./Section1.css";
+import { Link } from "react-router-dom";
 
 
 export function Section1() {
@@ -10,10 +11,11 @@ export function Section1() {
         <div className="bigText w-full">
         Your Vinyl Record Web Store
         </div>
-
+        <Link to='/genres-list'>
         <div className="littleText">
           <p>BUY NOW !</p>
         </div>
+        </Link>
       </div>
     </section>
   );

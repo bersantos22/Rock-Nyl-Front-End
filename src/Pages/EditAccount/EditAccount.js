@@ -16,7 +16,7 @@ export function EditAccount() {
   useEffect(() => {
     async function fetchForm() {
       try {
-        const response = await api.get(`/account/profile`)
+        const response = await api.get(`/account/profile/update`)
         setForm({ ...response.data });
       } catch (err) {
         console.error(err);
