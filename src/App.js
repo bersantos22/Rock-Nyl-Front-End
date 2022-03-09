@@ -12,49 +12,16 @@ import { AlbunsArtist } from "./Pages/AlbunsArtist/AlbunsArtist";
 import { CreateProduct } from "./Pages/CreateProduct/CreateProduct";
 import { MyAccount } from "./Pages/MyAccount/MyAccount";
 import { ProtectedRoute } from "./Components/ProtectedRoute";
-<<<<<<< HEAD
-import {CartProvider} from "../src/contexts/CartContext/CartContext"
-import {Cart} from "./Pages/Cart"
-
-=======
 import { AuthContextComponent } from "./contexts/authContext";
 import { EditAccount } from "./Pages/EditAccount/EditAccount";
 import { EditProduct } from "./Pages/EditProduct/EditProduct";
 import { ForgotPassword } from "./Pages/ForgotPassword/ForgotPassword";
 import { NewPassword } from "./Pages/NewPassword/NewPassword";
->>>>>>> d8c4b538a9e86c2485c3296eedc1aded9d9d48de
 
 function App() {
   return (
     
     <BrowserRouter>
-<<<<<<< HEAD
-    
-      <div className="appClass">
-      
-        <NavBar />
-
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/" element={<Homepage />} />
-          <Route path="/artists-list" element={<ArtistList />} />
-          <Route path="/genres-list" element={<AlbumList />} />
-          <Route path="/product/album/:id" element={<ProductPage />} />
-          <Route path="/product/artist/:artist" element={<AlbunsArtist />} />
-          <Route path="/adm/create-product" element={<CreateProduct />} />
-          <Route
-            path="/myAccount"
-            element={<ProtectedRoute component={MyAccount} />}
-          />
-          <Route path="/cart" element={<Cart/>} />
-        </Routes>
-
-        <Footer />
-        
-      </div>
-      
-=======
       <AuthContextComponent>
         <div className="appClass">
           <NavBar />
@@ -88,7 +55,6 @@ function App() {
           <Footer />
         </div>
       </AuthContextComponent>
->>>>>>> d8c4b538a9e86c2485c3296eedc1aded9d9d48de
     </BrowserRouter>
     
   );
