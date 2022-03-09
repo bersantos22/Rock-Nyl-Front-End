@@ -1,5 +1,5 @@
 import { api } from "../../api/api";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { SingleProduct } from "../../Components/SingleProduct/SingleProduct";
 import { Section2 } from "../Hompage-Components/Section2/Section2";
@@ -30,18 +30,20 @@ export function ProductPage() {
   }, [params.id]);
 
   return (
-    <section className='w-full mt-10 mb-12 pr-3'>
-      <SingleProduct
-        img={album.url_img}
-        artist={album.artist}
-        albumName={album.albumName}
-        type={album.type}
-        price={album.price}
-        description={album.description}
-        details={album.details}
-      />
+    <>
+      <section className="w-full mt-10 mb-12 pr-3">
+        <SingleProduct
+          img={album.url_img}
+          artist={album.artist}
+          albumName={album.albumName}
+          type={album.type}
+          price={album.price}
+          description={album.description}
+          details={album.details}
+        />
+      </section>
 
-
-    </section>
+      <Section2 />
+    </>
   );
 }

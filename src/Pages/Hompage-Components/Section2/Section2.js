@@ -13,6 +13,7 @@ import imgTheWho from '../../../images/thewho.webp';
 
 
 export function Section2() {
+  
   return (
     <section className="section2 container mx-auto mt-5 mb-10">
       <div className="title2 mt-3 mb-5">
