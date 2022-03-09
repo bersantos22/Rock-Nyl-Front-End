@@ -74,7 +74,7 @@ export function Login() {
           pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$"
         />
       <div className="flex items-center justify-between mt-7">
-        <Button type="submit" disabled={loading} className="bg-stone-800 hover:bg-amber-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-10">
+        <Button type="submit" disabled={loading} className="bg-blue-700 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-10">
           {loading ? (
             <div className="animate-spin" role="status">
               <span className="hidden">Loading...</span>

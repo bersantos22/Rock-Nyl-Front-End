@@ -47,15 +47,15 @@ export function MyAccount() {
                 <p><b>E-mail: </b>{ `${test.email}`}</p>
             </div>
             <div className="ml-4">
-                <Link to={`/editAccount?????????????????/}`} >
-                    <Button className='bg-stone-800 hover:bg-amber-500 text-white font-bold py-2 px-4 mt-3 rounded focus:outline-none focus:shadow-outline mr-6'>Edit Perfil</Button>
+                <Link to={`/editAccount`} >
+                    <Button className='bg-green-800 hover:bg-green-400 text-white font-bold py-2 px-4 mt-3 rounded focus:outline-none focus:shadow-outline mr-6'>Edit Perfil</Button>
                 </Link>
 
                 <Link to={`/___ROTA_DO_CARRINHO_AQUI___/${test._id}}`} >
-                    <Button className='bg-stone-800 hover:bg-amber-500 text-white font-bold py-2 px-6 mt-3 rounded focus:outline-none focus:shadow-outline mr-6 '>My Bag </Button>
+                    <Button className='bg-amber-600 hover:bg-amber-400 text-white font-bold py-2 px-6 mt-3 rounded focus:outline-none focus:shadow-outline mr-6 '>My Bag </Button>
                 </Link>
 
-                <Button className='bg-red-800 hover:bg-amber-500 text-white font-bold py-2 px-6 mt-3 rounded focus:outline-none focus:shadow-outline mr-6 ' onClick={handleDelete}>Delete </Button>
+                <Button className='bg-red-800 hover:bg-red-400 text-white font-bold py-2 px-6 mt-3 rounded focus:outline-none focus:shadow-outline mr-6 ' onClick={handleDelete}>Delete </Button>
             </div>
         </div>
       </div>
