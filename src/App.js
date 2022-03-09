@@ -12,11 +12,17 @@ import { AlbunsArtist } from "./Pages/AlbunsArtist/AlbunsArtist";
 import { CreateProduct } from "./Pages/CreateProduct/CreateProduct";
 import { MyAccount } from "./Pages/MyAccount/MyAccount";
 import { ProtectedRoute } from "./Components/ProtectedRoute";
+import {CartProvider} from "../src/contexts/CartContext/CartContext"
+import {Cart} from "./Pages/Cart"
+
 
 function App() {
   return (
+    
     <BrowserRouter>
+    
       <div className="appClass">
+      
         <NavBar />
 
         <Routes>
@@ -32,11 +38,15 @@ function App() {
             path="/myAccount"
             element={<ProtectedRoute component={MyAccount} />}
           />
+          <Route path="/cart" element={<Cart/>} />
         </Routes>
 
         <Footer />
+        
       </div>
+      
     </BrowserRouter>
+    
   );
 }
 

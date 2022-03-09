@@ -1,11 +1,13 @@
 import { api } from "../../api/api";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { SingleProduct } from "../../Components/SingleProduct/SingleProduct";
 import { Section2 } from "../Hompage-Components/Section2/Section2";
 
+
 export function ProductPage() {
   const params = useParams();
+  
 
   const [album, setAlbum] = useState({
     url_img: "",
@@ -30,7 +32,9 @@ export function ProductPage() {
   }, [params.id]);
 
   return (
+    
     <section className='mt-10 mb-5'>
+      
       <SingleProduct
         img={album.url_img}
         artist={album.artist}
