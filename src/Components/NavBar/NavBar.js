@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import "./NavBar.css";
-import vinyl from "../../images/kindpng_810924.png";
+import vinyl from '../../images/logoRockNyl.png'
 
 export function NavBar() {
   return (
-    <nav className="w-full">
+    <nav className="navClass w-full">
     <div className="divNav w-full">
       <div className="iconTitle">
         <div>
