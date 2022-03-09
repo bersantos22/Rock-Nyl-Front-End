@@ -66,7 +66,7 @@ export function MyAccount() {
 
           <Link to={`/___ROTA_DO_CARRINHO_AQUI___/${test._id}}`}>
             <Button className="bg-amber-600 hover:bg-amber-400 text-white font-bold py-2 px-6 mt-3 rounded focus:outline-none focus:shadow-outline mr-6 ">
-              My Bag{" "}
+              My Bag
             </Button>
           </Link>
 
@@ -74,7 +74,7 @@ export function MyAccount() {
             className="bg-red-800 hover:bg-red-400 text-white font-bold py-2 px-6 mt-3 rounded focus:outline-none focus:shadow-outline mr-6 "
             onClick={handleDelete}
           >
-            Delete{" "}
+            Delete
           </Button>
 
           {loggedInUser.user.role === "ADMIN" ? (

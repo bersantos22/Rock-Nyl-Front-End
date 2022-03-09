@@ -8,14 +8,16 @@ import { Button } from "../../Components/Button";
 
 export function SignUp() {
   const navigate = useNavigate();
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+
   const [form, setForm] = useState({
     name: "",
     email: "",
     password: "",
     confirmPassword: "",
+    role: "",
   });
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
 
   function handleChange(event) {
     setForm({ ...form, [event.target.name]: event.target.value });
@@ -49,11 +51,14 @@ export function SignUp() {
 
   return (
     <div className="h-screen mt-5 mb-5 flex flex-col items-center">
-        <div className="title2 mt-1 mb-5">
-          <p>Sign Up</p>
-        </div>
+      <div className="title2 mt-1 mb-5">
+        <p>Sign Up</p>
+      </div>
 
-      <form className='bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4 mb-5 w-1/2' onSubmit={handleSubmit}>
+      <form
+        className="bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4 mb-5 w-1/2"
+        onSubmit={handleSubmit}
+      >
         <FormField
           label="Full Name"
           id="signUpFormName"
@@ -97,17 +102,26 @@ export function SignUp() {
           onChange={handleChange}
           pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$"
         />
+        <div className="flex justify-between ">
+          <Button
+            type="submit"
+            disabled={loading}
+            className="bg-stone-800 hover:bg-amber-500 text-white font-bold py-2 px-4 mt-3 rounded focus:outline-none focus:shadow-outline"
+          >
+            {loading ? (
+              <div className="animate-spin" role="status">
+                <span className="hidden">Loading...</span>
+              </div>
+            ) : (
+              "Cadastrar"
+            )}
+          </Button>
 
-        <Button type="submit" disabled={loading} className="bg-stone-800 hover:bg-amber-500 text-white font-bold py-2 px-4 mt-3 rounded focus:outline-none focus:shadow-outline">
-          {loading ? (
-            <div className="animate-spin" role="status">
-              <span className="hidden">Loading...</span>
-            </div>
-          ) : (
-            "Cadastrar"
-          )}
-        </Button>
-
+          <select name="role" value={form.role} onChange={handleChange}>
+            <option value="USER">User</option>
+            <option value="ADMIN">Admin</option>
+          </select>
+        </div>
         {error ? <ErrorAlert>{error}</ErrorAlert> : null}
       </form>
     </div>
