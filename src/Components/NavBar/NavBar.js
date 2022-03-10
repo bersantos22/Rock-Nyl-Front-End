@@ -49,6 +49,12 @@ export function NavBar() {
                 Sign Up
               </Link>
             </li>
+
+            <li className="listLi">
+              <Link className="nav-link" to="/cart">
+                Cart
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

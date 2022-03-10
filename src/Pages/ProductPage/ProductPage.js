@@ -4,9 +4,10 @@ import { useParams } from "react-router-dom";
 import { SingleProduct } from "../../Components/SingleProduct/SingleProduct";
 import { Section2 } from "../Hompage-Components/Section2/Section2";
 
+
 export function ProductPage() {
   const params = useParams();
-
+  
   const [album, setAlbum] = useState({
     url_img: "",
     artist: "",
