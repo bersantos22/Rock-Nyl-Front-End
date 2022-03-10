@@ -11,8 +11,8 @@ export function Section1() {
         <div className="bigText w-full">
         Your Vinyl Record Web Store
         </div>
-        <Link to='/genres-list'>
-        <div className="littleText">
+        <Link to='/albuns-list'>
+        <div className="littleText linkHover">
           <p>BUY NOW !</p>
         </div>
         </Link>

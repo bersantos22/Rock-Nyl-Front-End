@@ -56,8 +56,9 @@ function App() {
             <Route path="/cart" element={<Cart />} />
           </Routes>
           
-          <Footer2 />
+         
         </div>
+        <Footer2 />
       </AuthContextComponent>
     </BrowserRouter>
   );
