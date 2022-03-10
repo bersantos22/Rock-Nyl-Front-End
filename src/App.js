@@ -16,18 +16,16 @@ import { EditAccount } from "./Pages/EditAccount/EditAccount";
 import { EditProduct } from "./Pages/EditProduct/EditProduct";
 import { ForgotPassword } from "./Pages/ForgotPassword/ForgotPassword";
 import { NewPassword } from "./Pages/NewPassword/NewPassword";
-import {Cart} from "./Pages/Cart"
+import { Cart } from "./Pages/Cart";
 import { Footer2 } from "./Components/Footer/Footer2";
-import {NavBar2} from "./Components/NavBar/NavBar2"
+import { NavBar2 } from "./Components/NavBar/NavBar2";
 
 function App() {
   return (
     <BrowserRouter>
       <AuthContextComponent>
         <div className="appClass">
-      
-          <NavBar2 /> 
-        
+          <NavBar2 />
 
           <Routes>
             <Route path="/login" element={<Login />} />
@@ -55,9 +53,8 @@ function App() {
             />
             <Route path="/cart" element={<Cart />} />
           </Routes>
-          
-          <Footer2 />
         </div>
+        <Footer2 />
       </AuthContextComponent>
     </BrowserRouter>
   );
