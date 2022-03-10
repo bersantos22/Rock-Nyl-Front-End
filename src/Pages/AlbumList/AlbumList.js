@@ -18,6 +18,7 @@ export function AlbumList() {
   const currentItens = albuns.slice(startIndex, endIndex);
 
   useEffect(() => {
+    let abortController = new AbortController();
     async function fetchAlbum() {
       try {
         const response = await api.get("/product/all-artists");
@@ -29,10 +30,19 @@ export function AlbumList() {
     }
     fetchAlbum();
     setRerender(false);
+
+    return () => {
+      abortController.abort();
+    };
   }, [rerender]);
 
   useEffect(() => {
+    let abortController = new AbortController();
+
     setCurrentPage(0);
+    return () => {
+      abortController.abort();
+    };
   }, [itensPerPage]);
 
   function filterAlbum(searchParams) {

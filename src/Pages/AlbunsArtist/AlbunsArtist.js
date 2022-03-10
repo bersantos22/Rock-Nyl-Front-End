@@ -19,7 +19,6 @@ export function AlbunsArtist() {
 
   useEffect(() => {
     let abortController = new AbortController();
-
     async function fetchArtistAlbuns() {
       try {
         const response = await api.get(`/product/artist/${params.artist}`);
@@ -38,7 +37,6 @@ export function AlbunsArtist() {
 
   useEffect(() => {
     let abortController = new AbortController();
-
     setCurrentPage(0);
 
     return () => {
