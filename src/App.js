@@ -1,6 +1,5 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-/* import { Footer } from "./Components/Footer/Footer"; */
 import { Login } from "./Pages/Login/index";
 import { SignUp } from "./Pages/SignUp";
 import { Homepage } from "./Pages/HomePage/Homepage";
@@ -17,15 +16,15 @@ import { EditProduct } from "./Pages/EditProduct/EditProduct";
 import { ForgotPassword } from "./Pages/ForgotPassword/ForgotPassword";
 import { NewPassword } from "./Pages/NewPassword/NewPassword";
 import { Cart } from "./Pages/Cart";
-import { Footer2 } from "./Components/Footer/Footer2";
-import { NavBar2 } from "./Components/NavBar/NavBar2";
+import { Footer } from "./Components/Footer/Footer";
+import { NavBar } from "./Components/NavBar/NavBar";
 
 function App() {
   return (
     <BrowserRouter>
       <AuthContextComponent>
         <div className="appClass">
-          <NavBar2 />
+          <NavBar />
 
           <Routes>
             <Route path="/login" element={<Login />} />
@@ -54,7 +53,7 @@ function App() {
             <Route path="/cart" element={<Cart />} />
           </Routes>
         </div>
-        <Footer2 />
+        <Footer />
       </AuthContextComponent>
     </BrowserRouter>
   );
