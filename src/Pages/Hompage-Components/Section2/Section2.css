@@ -9,7 +9,7 @@
 
 .section2 {
   padding: 15px;
-  background-color: white !important;
+  background-color: rgb(255, 255, 255);
 }
 
 @media (max-width:1350px) {

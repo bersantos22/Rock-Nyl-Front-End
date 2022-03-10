@@ -72,7 +72,7 @@ export function EditProduct() {
   );
 
   return (
-    <div className="h-screen mt-5 mb-5 flex flex-col items-center">
+    <div className="mt-5 mb-5 flex flex-col items-center">
       <div className="title2 mt-1 mb-5">
         <h3>Edit Product</h3>
       </div>
