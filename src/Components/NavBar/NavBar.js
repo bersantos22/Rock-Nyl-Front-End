@@ -13,7 +13,7 @@ export function NavBar() {
           <img className="imgVinyl" src={vinyl} alt="discImg"></img>
         </div>
         <div className="titleNav">
-          <Link className="nav-link title" to="/#">
+          <Link className="linkHover title" to="/#">
             Rock'Nyl
           </Link>
         </div>

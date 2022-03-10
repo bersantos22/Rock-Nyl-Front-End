@@ -19,7 +19,6 @@ export function MyAccount() {
     async function fechUser() {
       try {
         const response = await api.get("account/profile");
-        console.log(response.data);
         setTest({ ...response.data });
       } catch (error) {
         console.error(error);
