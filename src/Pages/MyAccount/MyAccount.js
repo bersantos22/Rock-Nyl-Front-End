@@ -32,7 +32,8 @@ export function MyAccount() {
   async function handleDelete() {
     try {
       await api.delete("/account/delete-account");
-      window.location.href = "/login";
+      window.location.href = "/";
+      localStorage.removeItem("loggedInUser");
     } catch (error) {
       console.error(error);
     }
@@ -43,7 +44,6 @@ export function MyAccount() {
       <div className="title2 mt-5 mb-5">
         <p>MY PROFILE</p>
       </div>
-
       <div className="bg-white shadow-2xl rounded ml-12 px-11 pt-6 pb-8 w-2/5">
         <div className="subtitle mx-4 mb-2">
           <p>
@@ -59,7 +59,6 @@ export function MyAccount() {
             {`${test.email}`}
           </p>
         </div>
-
         <div className="ml-4">
           <Link to={`/editAccount`}>
             <Button className="bg-green-800 hover:bg-green-400 text-white font-bold py-2 px-4 mt-3 rounded focus:outline-none focus:shadow-outline mr-6">
