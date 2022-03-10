@@ -1,6 +1,11 @@
 import axios from "axios";
 
-const api = axios.create({ baseURL: "http://localhost:4000" });
+const apisURL = {
+  development: "http://localhost:4000",
+  production: "https://rocknyl-newserver.herokuapp.com/api",
+};
+
+const api = axios.create({ baseURL: apisURL[process.env.NODE_ENV] });
 
 api.interceptors.request.use((config) => {
   const json = localStorage.getItem("loggedInUser");

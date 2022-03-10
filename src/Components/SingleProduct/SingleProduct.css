@@ -66,9 +66,3 @@
 .btnProduct:hover {
   box-shadow: 2px 12px 32px rgba(0, 0, 0, 0.3);
 }
-
-.productDetails {
-  display: flex;
-  justify-content: end;
-  margin-top: 1rem;
-}

@@ -54,7 +54,7 @@ export function SingleProduct(props) {
             </button>
           </Link>
         </div>
-        <div className="productDetails">
+        <div className="pt-3 grid justify-items-end">
           <span>Details: {props.details}</span>
         </div>
         <div>
