@@ -47,12 +47,10 @@ nav a{
 }
 
 
-.nav-link:hover{
+.linkHover:hover{
     color:#e5840f;
 }
-/* .title:hover{
-    color: rgb(245, 84, 9);;
-} */
+
 
  @media (max-width:1350px) {
 .divNav{
