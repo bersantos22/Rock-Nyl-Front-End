@@ -1,7 +1,9 @@
-import { api } from "../../api/api";
 import axios from "axios";
+import { api } from "../../api/api";
+
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+
 import { CardsAlbunsList } from "../../Components/cardsAlbunsList/cardsAlbunsList";
 import { PaginationComponent } from "../../Components/PaginationComponent/PaginationComponent";
 import { PaginationSelector } from "../../Components/PaginationSelector/PaginationSelector";

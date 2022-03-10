@@ -1,5 +1,5 @@
 import { api } from "../../api/api";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { SingleProduct } from "../../Components/SingleProduct/SingleProduct";
 import { Section2 } from "../Hompage-Components/Section2/Section2";

@@ -1,10 +1,12 @@
-import { api } from "../../api/api";
 import axios from "axios";
+import { api } from "../../api/api";
+
 import { useState, useEffect } from "react";
+
+import { SearchBar } from "../../Components/SearchBar/SearchBar";
+import { CardsAlbunsList } from "../../Components/cardsAlbunsList/cardsAlbunsList";
 import { PaginationComponent } from "../../Components/PaginationComponent/PaginationComponent";
 import { PaginationSelector } from "../../Components/PaginationSelector/PaginationSelector";
-import { CardsAlbunsList } from "../../Components/cardsAlbunsList/cardsAlbunsList";
-import { SearchBar } from "../../Components/SearchBar/SearchBar";
 
 export function AlbumList() {
   const [albuns, setAlbuns] = useState([]);
@@ -116,6 +118,7 @@ export function AlbumList() {
           );
         })}
       </div>
+
       <div className="p-2">
         <PaginationComponent
           pages={pages}
