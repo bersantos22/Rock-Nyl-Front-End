@@ -1,4 +1,3 @@
-import { useParams } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext";
 import { useEffect, useState, useContext } from "react";
 import { api } from "../../api/api";
@@ -7,8 +6,6 @@ import { FormField } from "../../Components/Forms/FormField";
 
 export function EditAccount() {
   const { loggedInUser } = useContext(AuthContext);
-  const { id } = useParams();
-
   const [form, setForm] = useState({
     name: "",
   });
@@ -16,17 +13,15 @@ export function EditAccount() {
   useEffect(() => {
     async function fetchForm() {
       try {
-        const response = await api.get(`/account/profile/update`)
+        const response = await api.get(`/account/profile`);
         setForm({ ...response.data });
       } catch (err) {
         console.error(err);
       }
     }
 
-   
     fetchForm();
   }, []);
-
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -34,26 +29,15 @@ export function EditAccount() {
 
   function handleSubmit(e) {
     e.preventDefault();
-
-   /*  for(let key in form){
-        if(!form[key]){
-            window.alert(`Preencher o campo ${key}.`);
-            return;
-        }
-    } */
-
-    async function updateForm(id) {
-      try {
-        await api.patch(`account/profile/update`, {
-          ...form,
-          userId: loggedInUser.token._id,
-        });
-        window.location.href = "/myAccount";
-      } catch (err) {
-        console.log(err);
-      }
+    try {
+      api.patch(`/account/profile/update`, {
+        _id: loggedInUser.user._id,
+        name: form.name,
+      });
+      window.location.href = "/myAccount";
+    } catch (err) {
+      console.log(err);
     }
-    updateForm(id);
   }
 
   return (
@@ -72,15 +56,6 @@ export function EditAccount() {
           value={form.name}
           onChange={handleChange}
         />
-        {/*  <FormField
-                label='E-mail'
-                type='email'
-                id='emailEdit'
-                name='email'
-                value={form.email}
-                onChange={handleChange} 
-                /> */}
-
         <Button
           type="submit"
           className="bg-green-600 hover:bg-green-400 text-white font-bold py-2 px-4 mt-3 rounded focus:outline-none focus:shadow-outline"
