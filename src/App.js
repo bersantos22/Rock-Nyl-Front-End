@@ -16,11 +16,17 @@ import { EditAccount } from "./Pages/EditAccount/EditAccount";
 import { EditProduct } from "./Pages/EditProduct/EditProduct";
 import { ForgotPassword } from "./Pages/ForgotPassword/ForgotPassword";
 import { NewPassword } from "./Pages/NewPassword/NewPassword";
+<<<<<<< HEAD
 import { Footer2 } from "./Components/Footer/Footer2";
 import {NavBar2} from "./Components/NavBar/NavBar2"
 import {Cart} from './Pages/Cart'
 import { CartContext } from "./contexts/cartContext/index";
 
+=======
+import { Cart } from "./Pages/Cart";
+import { Footer2 } from "./Components/Footer/Footer2";
+import { NavBar2 } from "./Components/NavBar/NavBar2";
+>>>>>>> 047403ee831e61800b19d19ea967cef18362d6a8
 
  
 function App() {
@@ -30,9 +36,7 @@ function App() {
       <AuthContextComponent>
       <CartContext.Provider>
         <div className="appClass">
-      
-          <NavBar2 /> 
-        
+          <NavBar2 />
 
           <Routes>
             <Route path="/login" element={<Login />} />
@@ -60,10 +64,12 @@ function App() {
             />
             <Route path="/cart" element={<Cart />} />
           </Routes>
-          
-          <Footer2 />
         </div>
+<<<<<<< HEAD
         </CartContext.Provider>
+=======
+        <Footer2 />
+>>>>>>> 047403ee831e61800b19d19ea967cef18362d6a8
       </AuthContextComponent>
       
     </BrowserRouter>

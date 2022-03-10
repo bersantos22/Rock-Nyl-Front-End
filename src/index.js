@@ -8,7 +8,7 @@ import Favicon from 'react-favicon';
 
 ReactDOM.render(
   <React.StrictMode>
-  <Favicon url='http://cdn.icon-icons.com/icons2/2024/PNG/512/vinyl_music_player_icon_123865.png' />
+  <Favicon url='https://i.ibb.co/SyC8dQ2/logo-Rock-Nyl.png' />
     <App />
   </React.StrictMode>,
   document.getElementById('root')

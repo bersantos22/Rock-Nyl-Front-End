@@ -13,7 +13,7 @@ export function NavBar() {
           <img className="imgVinyl" src={vinyl} alt="discImg"></img>
         </div>
         <div className="titleNav">
-          <Link className="nav-link title" to="/#">
+          <Link className="linkHover title" to="/#">
             Rock'Nyl
           </Link>
         </div>
@@ -24,8 +24,6 @@ export function NavBar() {
             <Link className="nav-link text-light" to="/artists-list">
               Shop By Artist    
             </Link>
-      
-
             </li>
 
             <li className="listLi">
@@ -49,12 +47,20 @@ export function NavBar() {
                 Sign Up
               </Link>
             </li>
+<<<<<<< HEAD
 
             <li className="listLi">
               <Link className="nav-link" to="/cart">
                 Cart
               </Link>
             </li>
+=======
+            <li className="listLi">
+              <Link className="nav-link" to="/cart">
+                Cart
+            </Link>
+          </li>
+>>>>>>> 047403ee831e61800b19d19ea967cef18362d6a8
           </ul>
         </div>
       </div>

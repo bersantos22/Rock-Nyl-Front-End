@@ -16,7 +16,7 @@ export function SignUp() {
     email: "",
     password: "",
     confirmPassword: "",
-    role: "",
+    role: "USER",
   });
 
   function handleChange(event) {
@@ -81,6 +81,7 @@ export function SignUp() {
         />
         <FormField
           type="password"
+          autoComplete="on"
           label="Senha"
           id="signUpPassword"
           required={true}
@@ -93,6 +94,7 @@ export function SignUp() {
 
         <FormField
           type="password"
+          autoComplete="on"
           label="Confirmação de senha"
           id="signUpConfirmPassword"
           required={true}

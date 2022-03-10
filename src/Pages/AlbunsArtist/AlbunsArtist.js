@@ -1,4 +1,5 @@
 import { api } from "../../api/api";
+import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { CardsAlbunsList } from "../../Components/cardsAlbunsList/cardsAlbunsList";
@@ -18,6 +19,7 @@ export function AlbunsArtist() {
   const currentItens = albuns.slice(startIndex, endIndex);
 
   useEffect(() => {
+    const source = axios.CancelToken.source();
     async function fetchArtistAlbuns() {
       try {
         const response = await api.get(`/product/artist/${params.artist}`);
@@ -28,10 +30,19 @@ export function AlbunsArtist() {
       }
     }
     fetchArtistAlbuns();
+
+    return () => {
+      source.cancel();
+    };
   }, [params.artist]);
 
   useEffect(() => {
+    const source = axios.CancelToken.source();
     setCurrentPage(0);
+
+    return () => {
+      source.cancel();
+    };
   }, [itensPerPage]);
 
   return (

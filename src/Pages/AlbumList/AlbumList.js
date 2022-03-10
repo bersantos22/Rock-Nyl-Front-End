@@ -1,4 +1,5 @@
 import { api } from "../../api/api";
+import axios from "axios";
 import { useState, useEffect } from "react";
 import { PaginationComponent } from "../../Components/PaginationComponent/PaginationComponent";
 import { PaginationSelector } from "../../Components/PaginationSelector/PaginationSelector";
@@ -18,6 +19,7 @@ export function AlbumList() {
   const currentItens = albuns.slice(startIndex, endIndex);
 
   useEffect(() => {
+    const source = axios.CancelToken.source();
     async function fetchAlbum() {
       try {
         const response = await api.get("/product/all-artists");
@@ -29,10 +31,20 @@ export function AlbumList() {
     }
     fetchAlbum();
     setRerender(false);
+
+    return () => {
+      source.cancel();
+    };
   }, [rerender]);
 
   useEffect(() => {
+    const source = axios.CancelToken.source();
+
     setCurrentPage(0);
+
+    return () => {
+      source.cancel();
+    };
   }, [itensPerPage]);
 
   function filterAlbum(searchParams) {
@@ -42,7 +54,6 @@ export function AlbumList() {
     }
 
     const filtered = albuns.filter((currentAlbum) => {
-      console.log(currentAlbum);
       return (
         currentAlbum.artist
           .toLowerCase()
