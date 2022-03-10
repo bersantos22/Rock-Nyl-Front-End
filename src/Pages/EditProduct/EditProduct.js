@@ -1,8 +1,10 @@
-import { api } from "../../api/api";
-import { Formik, Field, Form, ErrorMessage } from "formik";
-import schema from "../../utility/CreateProductschema.js";
-import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
+import { api } from "../../api/api";
+
+import { Formik, Field, Form, ErrorMessage } from "formik";
+import schemaEditProduct from "../../utility/EditProductschema";
 
 export function EditProduct() {
   const params = useParams();
@@ -14,6 +16,7 @@ export function EditProduct() {
     details: "",
     stock: "",
     price: "",
+    url_img: "",
   });
 
   useEffect(() => {
@@ -30,15 +33,24 @@ export function EditProduct() {
 
   async function onSubmit(values) {
     try {
+      if (typeof values.url_img === "string") {
+        console.log("é string");
+        await api.patch(`product/edit-product/${params.id}`, {
+          ...values,
+        });
+        window.location.href = `/product/album/${params.id}`;
+      }
+
+      console.log("é img");
       const uploadData = new FormData();
       uploadData.append("picture", values.url_img);
-
       const upload = await api.post("/upload", uploadData);
 
       await api.patch(`product/edit-product/${params.id}`, {
         ...values,
         url_img: upload.data.url,
       });
+
       window.location.href = `/product/album/${params.id}`;
     } catch (error) {
       console.error(error);
@@ -66,9 +78,8 @@ export function EditProduct() {
       </div>
 
       <Formik
-        validationSchema={schema}
+        validationSchema={schemaEditProduct}
         onSubmit={onSubmit}
-        validateOnMount
         setFieldValue
         initialValues={form}
         enableReinitialize

@@ -1,6 +1,6 @@
 import { api } from "../../api/api";
-import { Formik, Field, Form, ErrorMessage } from "formik";
 import schema from "../../utility/CreateProductschema.js";
+import { Formik, Field, Form, ErrorMessage } from "formik";
 
 export function CreateProduct() {
   async function onSubmit(values) {

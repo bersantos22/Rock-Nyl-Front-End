@@ -1,6 +1,9 @@
+import axios from "axios";
+import { api } from "../../api/api";
+
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { api } from "../../api/api";
+
 import { SearchBar } from "../../Components/SearchBar/SearchBar";
 import { PaginationComponent } from "../../Components/PaginationComponent/PaginationComponent";
 import { PaginationSelector } from "../../Components/PaginationSelector/PaginationSelector";
@@ -13,6 +16,7 @@ export function ArtistList() {
   const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
+    const source = axios.CancelToken.source();
     async function fetchArtists() {
       try {
         const response = await api.get("/product/all-artists");
@@ -24,10 +28,19 @@ export function ArtistList() {
     }
     fetchArtists();
     setRerender(false);
+
+    return () => {
+      source.cancel();
+    };
   }, [rerender]);
 
   useEffect(() => {
+    const source = axios.CancelToken.source();
     setCurrentPage(0);
+
+    return () => {
+      source.cancel();
+    };
   }, [itensPerPage]);
 
   const sortArtists = artists
@@ -88,16 +101,12 @@ export function ArtistList() {
           />
         </div>
       </div>
-      <div>
-        <a href="/">ALL</a>
-        <a href="/">A</a>
-        <a href="/">B</a>
-        <a href="/">C</a>
-      </div>
+
       <div className="flex ">
         <ul className="grid grid-flow-col grid-rows-12 gap-1">
           {currentItens.map((currentArtist) => {
             return (
+
               <li className="textRobot bg-white shadow-sm rounded px-1 pt-1 pb-1 max-w-sm m-2 hover:text-sky-400" key={currentArtist}>
                 <Link
                   key={currentArtist}

@@ -1,6 +1,6 @@
+import { api } from "../../api/api";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { api } from "../../api/api";
 
 import { FormField } from "../../Components/Forms/FormField";
 import { ErrorAlert } from "../../Components/ErrorAlert";
@@ -16,7 +16,7 @@ export function SignUp() {
     email: "",
     password: "",
     confirmPassword: "",
-    role: "",
+    role: "USER",
   });
 
   function handleChange(event) {

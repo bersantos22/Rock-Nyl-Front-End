@@ -1,6 +1,9 @@
+import axios from "axios";
 import { api } from "../../api/api";
+
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+
 import { CardsAlbunsList } from "../../Components/cardsAlbunsList/cardsAlbunsList";
 import { PaginationComponent } from "../../Components/PaginationComponent/PaginationComponent";
 import { PaginationSelector } from "../../Components/PaginationSelector/PaginationSelector";
@@ -18,7 +21,7 @@ export function AlbunsArtist() {
   const currentItens = albuns.slice(startIndex, endIndex);
 
   useEffect(() => {
-    let abortController = new AbortController();
+    const source = axios.CancelToken.source();
     async function fetchArtistAlbuns() {
       try {
         const response = await api.get(`/product/artist/${params.artist}`);
@@ -31,16 +34,16 @@ export function AlbunsArtist() {
     fetchArtistAlbuns();
 
     return () => {
-      abortController.abort();
+      source.cancel();
     };
   }, [params.artist]);
 
   useEffect(() => {
-    let abortController = new AbortController();
+    const source = axios.CancelToken.source();
     setCurrentPage(0);
 
     return () => {
-      abortController.abort();
+      source.cancel();
     };
   }, [itensPerPage]);
 

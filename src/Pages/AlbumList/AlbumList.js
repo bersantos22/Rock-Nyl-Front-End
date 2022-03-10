@@ -1,9 +1,12 @@
+import axios from "axios";
 import { api } from "../../api/api";
+
 import { useState, useEffect } from "react";
+
+import { SearchBar } from "../../Components/SearchBar/SearchBar";
+import { CardsAlbunsList } from "../../Components/cardsAlbunsList/cardsAlbunsList";
 import { PaginationComponent } from "../../Components/PaginationComponent/PaginationComponent";
 import { PaginationSelector } from "../../Components/PaginationSelector/PaginationSelector";
-import { CardsAlbunsList } from "../../Components/cardsAlbunsList/cardsAlbunsList";
-import { SearchBar } from "../../Components/SearchBar/SearchBar";
 
 export function AlbumList() {
   const [albuns, setAlbuns] = useState([]);
@@ -18,7 +21,7 @@ export function AlbumList() {
   const currentItens = albuns.slice(startIndex, endIndex);
 
   useEffect(() => {
-    let abortController = new AbortController();
+    const source = axios.CancelToken.source();
     async function fetchAlbum() {
       try {
         const response = await api.get("/product/all-artists");
@@ -32,16 +35,17 @@ export function AlbumList() {
     setRerender(false);
 
     return () => {
-      abortController.abort();
+      source.cancel();
     };
   }, [rerender]);
 
   useEffect(() => {
-    let abortController = new AbortController();
+    const source = axios.CancelToken.source();
 
     setCurrentPage(0);
+
     return () => {
-      abortController.abort();
+      source.cancel();
     };
   }, [itensPerPage]);
 
@@ -52,7 +56,6 @@ export function AlbumList() {
     }
 
     const filtered = albuns.filter((currentAlbum) => {
-      console.log(currentAlbum);
       return (
         currentAlbum.artist
           .toLowerCase()
@@ -115,6 +118,7 @@ export function AlbumList() {
           );
         })}
       </div>
+
       <div className="p-2">
         <PaginationComponent
           pages={pages}
