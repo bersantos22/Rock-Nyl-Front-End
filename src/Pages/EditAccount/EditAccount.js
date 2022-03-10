@@ -1,6 +1,8 @@
-import { AuthContext } from "../../contexts/authContext";
-import { useEffect, useState, useContext } from "react";
 import { api } from "../../api/api";
+import { AuthContext } from "../../contexts/authContext";
+
+import { useEffect, useState, useContext } from "react";
+
 import { Button } from "../../Components/Button/index";
 import { FormField } from "../../Components/Forms/FormField";
 
@@ -45,6 +47,7 @@ export function EditAccount() {
       <div className="title2 mt-1 mb-5">
         <p>Edit Account</p>
       </div>
+
       <form
         className="bg-white shadow-2xl rounded px-12 pt-6 pb-8 mb-5 w-1/4"
         onSubmit={handleSubmit}
