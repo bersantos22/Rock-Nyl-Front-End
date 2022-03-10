@@ -1,4 +1,5 @@
 import { api } from "../../api/api";
+import axios from "axios";
 import { useState, useEffect } from "react";
 import { PaginationComponent } from "../../Components/PaginationComponent/PaginationComponent";
 import { PaginationSelector } from "../../Components/PaginationSelector/PaginationSelector";
@@ -18,7 +19,7 @@ export function AlbumList() {
   const currentItens = albuns.slice(startIndex, endIndex);
 
   useEffect(() => {
-    let abortController = new AbortController();
+    const source = axios.CancelToken.source();
     async function fetchAlbum() {
       try {
         const response = await api.get("/product/all-artists");
@@ -32,16 +33,17 @@ export function AlbumList() {
     setRerender(false);
 
     return () => {
-      abortController.abort();
+      source.cancel();
     };
   }, [rerender]);
 
   useEffect(() => {
-    let abortController = new AbortController();
+    const source = axios.CancelToken.source();
 
     setCurrentPage(0);
+
     return () => {
-      abortController.abort();
+      source.cancel();
     };
   }, [itensPerPage]);
 
@@ -52,7 +54,6 @@ export function AlbumList() {
     }
 
     const filtered = albuns.filter((currentAlbum) => {
-      console.log(currentAlbum);
       return (
         currentAlbum.artist
           .toLowerCase()

@@ -8,7 +8,6 @@ import { api } from "../../api/api";
 export function SingleProduct(props) {
   const { loggedInUser } = useContext(AuthContext);
   const params = useParams();
-  console.log(params.id);
 
   async function handleDelete() {
     try {
@@ -60,7 +59,7 @@ export function SingleProduct(props) {
         </div>
         <div>
           <div>
-            {loggedInUser.user.role === "ADMIN" ? (
+            {loggedInUser && loggedInUser.user.role === "ADMIN" ? (
               <Link to={`/edit-product/${params.id}`}>
                 <button className="bg-blue-800 hover:bg-blue-400 text-white font-bold py-2 px-4 mt-3 rounded focus:outline-none focus:shadow-outline mr-6">
                   Edit Product
@@ -71,7 +70,7 @@ export function SingleProduct(props) {
             )}
           </div>
           <div>
-            {loggedInUser.user.role === "ADMIN" ? (
+            {loggedInUser && loggedInUser.user.role === "ADMIN" ? (
               <button
                 className="bg-red-800 hover:bg-red-400 text-white font-bold py-2 px-6 mt-3 rounded focus:outline-none focus:shadow-outline mr-6 "
                 onClick={handleDelete}
