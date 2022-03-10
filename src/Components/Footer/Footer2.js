@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import vinyl from '../../images/logoRockNyl.png'
-import './Footer.css'
+import vinyl from "../../images/logoRockNyl.png";
+import "./Footer.css";
 
 export function Footer2(){
     return(
@@ -45,7 +45,7 @@ export function Footer2(){
                 </a>
             </div>
         </div>
-</footer>
-
-    )
+      </div>
+    </footer>
+  );
 }
