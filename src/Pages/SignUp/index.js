@@ -16,7 +16,7 @@ export function SignUp() {
     email: "",
     password: "",
     confirmPassword: "",
-    role: "",
+    role: "USER",
   });
 
   function handleChange(event) {
