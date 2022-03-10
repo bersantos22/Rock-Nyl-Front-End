@@ -70,7 +70,7 @@ export function ArtistList() {
       </div>
 
       <div className="flex justify-between  ">
-        <div className="w-5/6">
+        <div className="w-5/6 my-4">
           <SearchBar
             placeholder="Search for your favorite Artist!"
             filterList={filterArtist}
@@ -98,13 +98,13 @@ export function ArtistList() {
         <ul className="grid grid-flow-col grid-rows-12 gap-1">
           {currentItens.map((currentArtist) => {
             return (
-              <li className="textRobot m-2 hover:text-sky-400" key={currentArtist}>
+              <li className="textRobot bg-white shadow-sm rounded px-1 pt-1 pb-1 max-w-sm m-2 hover:text-sky-400" key={currentArtist}>
                 <Link
                   key={currentArtist}
                   to={`/product/artist/${currentArtist}`}
                 >
                   {currentArtist.length > 20
-                    ? `${currentArtist.substring(0, 20)} ...`
+                    ? `${currentArtist.substring(0, 17)} ...`
                     : `${currentArtist}`}
                 </Link>
               </li>
@@ -112,7 +112,7 @@ export function ArtistList() {
           })}
         </ul>
       </div>
-      <div className="p-2">
+      <div className="p-2 my-3">
         <PaginationComponent
           pages={pages}
           currentPage={currentPage}
