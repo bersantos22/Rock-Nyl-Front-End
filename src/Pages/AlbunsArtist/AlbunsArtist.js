@@ -18,6 +18,7 @@ export function AlbunsArtist() {
   const currentItens = albuns.slice(startIndex, endIndex);
 
   useEffect(() => {
+    let abortController = new AbortController();
     async function fetchArtistAlbuns() {
       try {
         const response = await api.get(`/product/artist/${params.artist}`);
@@ -28,10 +29,19 @@ export function AlbunsArtist() {
       }
     }
     fetchArtistAlbuns();
+
+    return () => {
+      abortController.abort();
+    };
   }, [params.artist]);
 
   useEffect(() => {
+    let abortController = new AbortController();
     setCurrentPage(0);
+
+    return () => {
+      abortController.abort();
+    };
   }, [itensPerPage]);
 
   return (

@@ -67,6 +67,7 @@ export function Login() {
           />
           <FormField
             type="password"
+            autoComplete="on"
             label="Senha"
             id="loginFormPassword"
             required={true}
