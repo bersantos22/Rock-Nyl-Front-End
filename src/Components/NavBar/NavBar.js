@@ -35,7 +35,8 @@ export function NavBar() {
         <ul className="textRobot flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0">
           <li>
             <Link
-              className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-100 md:dark:hover:text-amber-400"
+              className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50
+                  md:border-0 md:hover:bg-transparent  md:p-0 dark:text-gray-100 dark:hover:bg-gray-700 dark:hover:text-amber-400 md:dark:hover:bg-transparent dark:border-grey-400"
               to="/artists-list"
             >
               Shop By Artist
@@ -44,7 +45,8 @@ export function NavBar() {
 
           <li>
             <Link
-              className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-100 md:dark:hover:text-amber-400"
+              className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50
+                  md:border-0 md:hover:bg-transparent  md:p-0 dark:text-gray-100 dark:hover:bg-gray-700 dark:hover:text-amber-400 md:dark:hover:bg-transparent dark:border-grey-400"
               to="/albuns-list"
             >
               Shop By Album
@@ -54,7 +56,8 @@ export function NavBar() {
           <li>
             {loginState ? (
               <Link
-                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-100 md:dark:hover:text-amber-400 "
+                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50
+                  md:border-0 md:hover:bg-transparent  md:p-0 dark:text-gray-100 dark:hover:bg-gray-700 dark:hover:text-amber-400 md:dark:hover:bg-transparent dark:border-grey-400"
                 to="/myAccount"
               >
                 My Account
@@ -62,7 +65,7 @@ export function NavBar() {
             ) : (
               <Link
                 className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50
-                  md:border-0 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-100 md:dark:hover:text-amber-400"
+                  md:border-0 md:hover:bg-transparent  md:p-0 dark:text-gray-100 dark:hover:bg-gray-700 dark:hover:text-amber-400 md:dark:hover:bg-transparent dark:border-grey-400"
                 to="/login"
               >
                 Login
@@ -81,7 +84,8 @@ export function NavBar() {
               </Button>
             ) : (
               <Link
-                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-100 md:dark:hover:text-amber-400"
+                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50
+                  md:border-0 md:hover:bg-transparent  md:p-0 dark:text-gray-100 dark:hover:bg-gray-700 dark:hover:text-amber-400 md:dark:hover:bg-transparent dark:border-grey-400"
                 to="/signup"
               >
                 Sign In
